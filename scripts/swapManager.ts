@@ -12,3 +12,19 @@ const TRANSLATIONS_FILE = path.resolve(__dirname, '../packages/localization/src/
 /**
  * Manages the translations.json file by adding missing keys or removing unused ones
  * @param keysToProcess Object containing keys in format { "key1": "key1", "key2": "key2" }
+ * @param taggedKeys Array of tagged keys with format [["key1", "key2"], "unused"] or [["key3"], "missing"]
+ */
+async function updateTranslationsFile(keysToProcess: TranslationKeys, taggedKeys: TaggedKeys) {
+  const [keys, tag] = taggedKeys
+  processFile(TRANSLATIONS_FILE, keysToProcess, keys, tag)
+}
+
+/**
+ * Process a translation file by adding missing keys or removing unused ones
+ */
+function processFile(filePath: string, keysToProcess: TranslationKeys, targetKeys: string[], tag: Tag) {
+  try {
+    const fileContent = fs.readFileSync(filePath, 'utf8')
+    const translations = JSON.parse(fileContent)
+    let modified = false
+
