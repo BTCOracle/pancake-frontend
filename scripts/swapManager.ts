@@ -28,3 +28,5 @@ function processFile(filePath: string, keysToProcess: TranslationKeys, targetKey
     const translations = JSON.parse(fileContent)
     let modified = false
 
+    if (tag === 'unused') {
+      // Remove keys tagged as unused
