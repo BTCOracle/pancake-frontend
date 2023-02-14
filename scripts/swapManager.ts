@@ -30,3 +30,6 @@ function processFile(filePath: string, keysToProcess: TranslationKeys, targetKey
 
     if (tag === 'unused') {
       // Remove keys tagged as unused
+      for (const key of targetKeys) {
+        if (key in translations) {
+          delete translations[key]
