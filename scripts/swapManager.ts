@@ -33,3 +33,8 @@ function processFile(filePath: string, keysToProcess: TranslationKeys, targetKey
       for (const key of targetKeys) {
         if (key in translations) {
           delete translations[key]
+          modified = true
+          console.log(`Removed key "${key}" from ${path.basename(filePath)}`)
+        }
+      }
+
