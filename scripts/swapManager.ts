@@ -38,3 +38,6 @@ function processFile(filePath: string, keysToProcess: TranslationKeys, targetKey
         }
       }
 
+      if (modified) {
+        // For removals, we need to rewrite the entire file
+        fs.writeFileSync(filePath, JSON.stringify(translations, null, 2))
