@@ -41,3 +41,8 @@ function processFile(filePath: string, keysToProcess: TranslationKeys, targetKey
       if (modified) {
         // For removals, we need to rewrite the entire file
         fs.writeFileSync(filePath, JSON.stringify(translations, null, 2))
+        // eslint-disable-next-line no-console
+        console.log(`Updated ${path.basename(filePath)}`)
+      }
+    } else if (tag === 'missing') {
+      // For missing keys, we'll manually append to the end of the file
