@@ -46,3 +46,4 @@ function processFile(filePath: string, keysToProcess: TranslationKeys, targetKey
       }
     } else if (tag === 'missing') {
       // For missing keys, we'll manually append to the end of the file
+      const keysToAdd: Record<string, string> = {}
