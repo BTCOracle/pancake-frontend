@@ -49,3 +49,4 @@ function processFile(filePath: string, keysToProcess: TranslationKeys, targetKey
       const keysToAdd: Record<string, string> = {}
       let hasKeysToAdd = false
 
+      for (const key of targetKeys) {
