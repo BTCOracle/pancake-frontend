@@ -50,3 +50,8 @@ function processFile(filePath: string, keysToProcess: TranslationKeys, targetKey
       let hasKeysToAdd = false
 
       for (const key of targetKeys) {
+        if (!(key in translations) && key in keysToProcess) {
+          keysToAdd[key] = keysToProcess[key]
+          hasKeysToAdd = true
+          // eslint-disable-next-line no-console
+          console.log(`Added key "${key}" to ${path.basename(filePath)}`)
