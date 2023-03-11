@@ -55,3 +55,7 @@ function processFile(filePath: string, keysToProcess: TranslationKeys, targetKey
           hasKeysToAdd = true
           // eslint-disable-next-line no-console
           console.log(`Added key "${key}" to ${path.basename(filePath)}`)
+        }
+      }
+
+      if (hasKeysToAdd) {
