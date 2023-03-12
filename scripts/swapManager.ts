@@ -59,3 +59,6 @@ function processFile(filePath: string, keysToProcess: TranslationKeys, targetKey
       }
 
       if (hasKeysToAdd) {
+        // Read the file line by line
+        const lines = fileContent.split('\n')
+
