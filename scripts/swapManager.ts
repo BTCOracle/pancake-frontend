@@ -62,3 +62,23 @@ function processFile(filePath: string, keysToProcess: TranslationKeys, targetKey
         // Read the file line by line
         const lines = fileContent.split('\n')
 
+        // Find the last line with the closing brace
+        let lastContentLineIdx = -1
+        for (let i = lines.length - 1; i >= 0; i--) {
+          if (lines[i].trim() === '}') {
+            lastContentLineIdx = i
+            break
+          }
+        }
+
+        if (lastContentLineIdx !== -1) {
+          // Check if the line before the closing brace has a comma
+          const lastKeyLineIdx = lastContentLineIdx - 1
+          if (lastKeyLineIdx >= 0 && !lines[lastKeyLineIdx].trim().endsWith(',')) {
+            lines[lastKeyLineIdx] += ','
+          }
+
+          // Add each new key before the closing brace
+          const keyLines = Object.entries(keysToAdd).map(
+            ([key, value], idx, arr) => `  "${key}": "${value}"${idx < arr.length - 1 ? ',' : ''}`,
+          )
