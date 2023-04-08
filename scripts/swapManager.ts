@@ -82,3 +82,8 @@ function processFile(filePath: string, keysToProcess: TranslationKeys, targetKey
           const keyLines = Object.entries(keysToAdd).map(
             ([key, value], idx, arr) => `  "${key}": "${value}"${idx < arr.length - 1 ? ',' : ''}`,
           )
+
+          // Insert the new key lines before the closing brace
+          lines.splice(lastContentLineIdx, 0, ...keyLines)
+
+          // Write the modified content back to the file
