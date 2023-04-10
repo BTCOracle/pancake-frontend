@@ -87,3 +87,4 @@ function processFile(filePath: string, keysToProcess: TranslationKeys, targetKey
           lines.splice(lastContentLineIdx, 0, ...keyLines)
 
           // Write the modified content back to the file
+          fs.writeFileSync(filePath, lines.join('\n'))
