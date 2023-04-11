@@ -88,3 +88,6 @@ function processFile(filePath: string, keysToProcess: TranslationKeys, targetKey
 
           // Write the modified content back to the file
           fs.writeFileSync(filePath, lines.join('\n'))
+          // eslint-disable-next-line no-console
+          console.log(`Updated ${path.basename(filePath)}`)
+        } else {
