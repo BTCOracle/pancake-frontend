@@ -91,3 +91,5 @@ function processFile(filePath: string, keysToProcess: TranslationKeys, targetKey
           // eslint-disable-next-line no-console
           console.log(`Updated ${path.basename(filePath)}`)
         } else {
+          console.error(`Could not find the closing brace in ${filePath}`)
+        }
