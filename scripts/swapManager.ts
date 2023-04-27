@@ -93,3 +93,18 @@ function processFile(filePath: string, keysToProcess: TranslationKeys, targetKey
         } else {
           console.error(`Could not find the closing brace in ${filePath}`)
         }
+      }
+    }
+  } catch (error) {
+    console.error(`Error processing ${filePath}:`, error)
+  }
+}
+
+/**
+ * Main function that handles CLI arguments and runs the translation management
+ */
+async function main() {
+  const args = process.argv.slice(2)
+
+  if (args.length < 2) {
+    // eslint-disable-next-line no-console
