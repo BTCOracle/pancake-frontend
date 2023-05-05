@@ -108,3 +108,11 @@ async function main() {
 
   if (args.length < 2) {
     // eslint-disable-next-line no-console
+    console.log(`
+Usage: 
+  pnpm tsx scripts/translationManager.ts <keys_json_string> -tag <tag>
+
+Examples:
+  # Remove unused keys from translations file
+  pnpm tsx scripts/translationManager.ts '{"key1":"key1","key2":"key2"}' -tag unused
+  
