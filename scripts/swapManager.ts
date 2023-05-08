@@ -116,3 +116,5 @@ Examples:
   # Remove unused keys from translations file
   pnpm tsx scripts/translationManager.ts '{"key1":"key1","key2":"key2"}' -tag unused
   
+  # Add missing keys to translations file
+  pnpm tsx scripts/translationManager.ts '{"key3":"key3"}' -tag missing
