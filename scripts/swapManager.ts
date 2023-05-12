@@ -118,3 +118,7 @@ Examples:
   
   # Add missing keys to translations file
   pnpm tsx scripts/translationManager.ts '{"key3":"key3"}' -tag missing
+    `)
+    process.exit(1)
+  }
+
