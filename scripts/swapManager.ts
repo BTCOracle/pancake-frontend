@@ -122,3 +122,5 @@ Examples:
     process.exit(1)
   }
 
+  // Check for -tag argument
+  const tagIndex = args.indexOf('-tag')
