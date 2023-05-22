@@ -127,3 +127,5 @@ Examples:
   if (tagIndex === -1 || tagIndex === args.length - 1) {
     console.error('Missing or invalid -tag parameter')
     process.exit(1)
+  }
+
