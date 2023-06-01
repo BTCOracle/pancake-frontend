@@ -129,3 +129,14 @@ Examples:
     process.exit(1)
   }
 
+  const tagValue = args[tagIndex + 1]
+  if (tagValue !== 'unused' && tagValue !== 'missing') {
+    console.error('Tag must be either "unused" or "missing"')
+    process.exit(1)
+  }
+  const tag = tagValue as Tag
+
+  // Remove the -tag and its value from args for further processing
+  const processArgs = [...args]
+  processArgs.splice(tagIndex, 2)
+
