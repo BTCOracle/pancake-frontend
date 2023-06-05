@@ -140,3 +140,7 @@ Examples:
   const processArgs = [...args]
   processArgs.splice(tagIndex, 2)
 
+  // Parse remaining arguments
+  if (processArgs.length !== 1) {
+    console.error('Invalid number of arguments')
+    process.exit(1)
