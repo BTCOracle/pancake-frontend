@@ -144,3 +144,12 @@ Examples:
   if (processArgs.length !== 1) {
     console.error('Invalid number of arguments')
     process.exit(1)
+  }
+
+  const keysString = processArgs[0]
+
+  // Parse keys object
+  let keysToProcess: TranslationKeys
+  try {
+    keysToProcess = JSON.parse(keysString)
+  } catch (error) {
