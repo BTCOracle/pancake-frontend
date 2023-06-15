@@ -153,3 +153,4 @@ Examples:
   try {
     keysToProcess = JSON.parse(keysString)
   } catch (error) {
+    console.error('Invalid JSON format for keys:', error)
