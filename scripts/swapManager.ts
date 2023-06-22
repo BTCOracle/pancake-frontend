@@ -154,3 +154,13 @@ Examples:
     keysToProcess = JSON.parse(keysString)
   } catch (error) {
     console.error('Invalid JSON format for keys:', error)
+    process.exit(1)
+  }
+
+  // Extract keys from the keys object
+  const keys = Object.keys(keysToProcess)
+
+  // Run the update
+  await updateTranslationsFile(keysToProcess, [keys, tag])
+}
+
