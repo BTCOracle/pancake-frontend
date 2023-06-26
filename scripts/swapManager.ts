@@ -164,3 +164,5 @@ Examples:
   await updateTranslationsFile(keysToProcess, [keys, tag])
 }
 
+// Run the script
+main().catch(console.error)
