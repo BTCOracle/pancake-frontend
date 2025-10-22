@@ -1,0 +1,37 @@
+packages:
+  - 'packages/*'
+  - 'packages/routing-sdk/**'
+  - 'apps/*'
+  - 'apis/*'
+  - 'examples/*'
+  - 'scripts'
+
+catalog:
+  '@aptos-labs/ts-sdk': 1.30.0
+  '@next/eslint-plugin-next': 14.2.3
+  '@solana/web3.js': 1.98.4
+  '@types/react': ^18.2.21
+  '@types/react-dom': ^18.0.6
+  '@vanilla-extract/vite-plugin': ^4.0.2
+  '@vercel/functions': 2.0.0
+  eslint: ^8.32.0
+  jotai: 2.12.5
+  next: 15.2.3
+  react: ^18.2.0
+  react-dom: ^18.2.0
+  '@cyberlab/cyber-app-sdk': 3.0.0-beta.5
+  viem: 2.37.13
+  wagmi: 2.17.5
+  "@wagmi/core": 2.21.2
+  wrangler: 3.81.0
+  zod: ^3.25.67
+  '@solana/wallet-adapter-wallets': 0.19.37
+  '@solana/wallet-adapter-base': 0.9.27
+  '@solana/wallet-adapter-react': 0.15.39
+  '@solana/wallet-adapter-react-ui': 0.9.39
+  # remove this when apps/solana remove this deps
+  '@solana/wallet-adapter-slope': ^0.5.21
+  '@solana/wallet-adapter-exodus': ^0.1.18
+  '@solana/wallet-adapter-glow': ^0.1.18
+  '@solflare-wallet/wallet-adapter': ^1.0.3
+  '@walletconnect/ethereum-provider': 2.21.8

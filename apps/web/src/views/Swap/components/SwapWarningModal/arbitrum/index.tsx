@@ -1,0 +1,3 @@
+const ARBITRUM_WARNING_LIST = {}
+
+export default ARBITRUM_WARNING_LIST

@@ -1,0 +1,761 @@
+{
+  "The storm's a-comin! Watch out! These bulls are stampeding in a syrupy surge!": {
+    "value": "The storm's a-comin! Watch out! These bulls are stampeding in a syrupy surge!"
+  },
+  "The flippening is coming. Don't get in these bunnies' way, or you'll get flipped, too!": {
+    "value": "The flippening is coming. Don't get in these bunnies' way, or you'll get flipped, too!"
+  },
+  "Can you stand the heat? Stay out of the kitchen or you might get burned to a crisp!": {
+    "value": "Can you stand the heat? Stay out of the kitchen or you might get burned to a crisp!"
+  },
+  "Profile Pic": {
+    "value": "Profile Pic"
+  },
+  "In Wallet": {
+    "value": "In Wallet"
+  },
+  "Oopsie daisy! Hiccup's had a bit of an accident. Poor little fella.": {
+    "value": "Oopsie daisy! Hiccup's had a bit of an accident. Poor little fella."
+  },
+  "Eggscellent! Celebrating Syrup Storm winning the Easter Battle!": {
+    "value": "Eggscellent! Celebrating Syrup Storm winning the Easter Battle!"
+  },
+  "Melting Easter eggs and melting hearts!": {
+    "value": "Melting Easter eggs and melting hearts!"
+  },
+  "Watch out for Flipsie’s spatula smash!": {
+    "value": "Watch out for Flipsie’s spatula smash!"
+  },
+  "Do you like chocolate with your syrup? Go long!": {
+    "value": "Do you like chocolate with your syrup? Go long!"
+  },
+  "Happy Niu Year! This bunny’s excited for the year of the bull (market!)": {
+    "value": "Happy Niu Year! This bunny’s excited for the year of the bull (market!)"
+  },
+  "Sunny is always cheerful when there are pancakes around. Smile!": {
+    "value": "Sunny is always cheerful when there are pancakes around. Smile!"
+  },
+  "Don't let that dopey smile deceive you... Churro's a master CAKE chef!": {
+    "value": "Don't let that dopey smile deceive you... Churro's a master CAKE chef!"
+  },
+  "Nommm... Oh hi, I'm just meditating on the meaning of CAKE.": {
+    "value": "Nommm... Oh hi, I'm just meditating on the meaning of CAKE."
+  },
+  "Three guesses what's put that twinkle in those eyes! (Hint: it's CAKE)": {
+    "value": "Three guesses what's put that twinkle in those eyes! (Hint: it's CAKE)"
+  },
+  "These bunnies love nothing more than swapping pancakes. Especially on BSC.": {
+    "value": "These bunnies love nothing more than swapping pancakes. Especially on BSC."
+  },
+  "It's raining syrup on this bunny, but he doesn't seem to mind. Can you blame him?": {
+    "value": "It's raining syrup on this bunny, but he doesn't seem to mind. Can you blame him?"
+  },
+  "These bunnies like their pancakes with blueberries. What's your favorite topping?": {
+    "value": "These bunnies like their pancakes with blueberries. What's your favorite topping?"
+  },
+  "Love makes the world go 'round... but so do pancakes. And these bunnies know it.": {
+    "value": "Love makes the world go 'round... but so do pancakes. And these bunnies know it."
+  },
+  "It’s sparkling syrup, pancakes, and even lottery tickets! This bunny really loves it.": {
+    "value": "It’s sparkling syrup, pancakes, and even lottery tickets! This bunny really loves it."
+  },
+  "Swap max. %inputAmount% %inputSymbol% for %outputAmount% %outputSymbol%": {
+    "value": "Swap max. %inputAmount% %inputSymbol% for %outputAmount% %outputSymbol%"
+  },
+  "Swap max. %inputAmount% %inputSymbol% for %outputAmount% %outputSymbol% to %recipientAddress%": {
+    "value": "Swap max. %inputAmount% %inputSymbol% for %outputAmount% %outputSymbol% to %recipientAddress%"
+  },
+  "Swap %inputAmount% %inputSymbol% for min. %outputAmount% %outputSymbol%": {
+    "value": "Swap %inputAmount% %inputSymbol% for min. %outputAmount% %outputSymbol%"
+  },
+  "Swap %inputAmount% %inputSymbol% for min. %outputAmount% %outputSymbol% to %recipientAddress%": {
+    "value": "Swap %inputAmount% %inputSymbol% for min. %outputAmount% %outputSymbol% to %recipientAddress%"
+  },
+  "Unwrap %amount% %wrap% to %native%": {
+    "value": "Unwrap %amount% %wrap% to %native%"
+  },
+  "Wrap %amount% %native% to %wrap%": {
+    "value": "Wrap %amount% %native% to %wrap%"
+  },
+  "Add %amountA% %symbolA% and %amountB% %symbolB%": {
+    "value": "Add %amountA% %symbolA% and %amountB% %symbolB%"
+  },
+  "Remove %amount% %symbol%": {
+    "value": "Remove %amount% %symbol%"
+  },
+  "Remove %amountA% %symbolA% and %amountB% %symbolB%": {
+    "value": "Remove %amountA% %symbolA% and %amountB% %symbolB%"
+  },
+  "Zap %amountA% %symbolA% and %amountB% %symbolB%": {
+    "value": "Zap %amountA% %symbolA% and %amountB% %symbolB%"
+  },
+  "Zap in %amount% BNB for %symbol%": {
+    "value": "Zap in %amount% BNB for %symbol%"
+  },
+  "Zap in %amount% %symbol% for %lpSymbol%": {
+    "value": "Zap in %amount% %symbol% for %lpSymbol%"
+  },
+  "Zap in for %lpSymbol%": {
+    "value": "Zap in for %lpSymbol%"
+  },
+  "Order cancellation: %inputAmount% %inputTokenSymbol% for %outputAmount% %outputTokenSymbol%": {
+    "value": "Order cancellation: %inputAmount% %inputTokenSymbol% for %outputAmount% %outputTokenSymbol%"
+  },
+  "Order cancellation": {
+    "value": "Order cancellation"
+  },
+  "Launch App": {
+    "value": "Launch App"
+  },
+  "Newest First": {
+    "value": "Newest First"
+  },
+  "Oldest First": {
+    "value": "Oldest First"
+  },
+  "Sort Title A-Z": {
+    "value": "Sort Title A-Z"
+  },
+  "Sort Title Z-A": {
+    "value": "Sort Title Z-A"
+  },
+  "All articles": {
+    "value": "All articles"
+  },
+  "Learn basics of PancakeSwap": {
+    "value": "Learn basics of PancakeSwap"
+  },
+  "Learn how": {
+    "value": "Learn how"
+  },
+  "You might also like": {
+    "value": "You might also like"
+  },
+  "Chef’s choice": {
+    "value": "Chef’s choice"
+  },
+  "Recommended Readings by Chefs": {
+    "value": "Recommended Readings by Chefs"
+  },
+  "Latest News about PancakeSwap and more!": {
+    "value": "Latest News about PancakeSwap and more!"
+  },
+  "Gaming Announcements": {
+    "value": "Gaming Announcements"
+  },
+  "PancakeSwap Gaming Community": {
+    "value": "PancakeSwap Gaming Community"
+  },
+  "Gaming Community": {
+    "value": "Gaming Community"
+  },
+  "Every Game, Every Chain, One Destination": {
+    "value": "Every Game, Every Chain, One Destination"
+  },
+  "Build": {
+    "value": "Build"
+  },
+  "Games": {
+    "value": "Games"
+  },
+  "with": {
+    "value": "with"
+  },
+  "Design Games to Captivate 1.5 Million Potential Players": {
+    "value": "Design Games to Captivate 1.5 Million Potential Players"
+  },
+  "Build Games with PancakeSwap Now": {
+    "value": "Build Games with PancakeSwap Now"
+  },
+  "Bring Your Game to Life on PancakeSwap": {
+    "value": "Bring Your Game to Life on PancakeSwap"
+  },
+  "Your Complete Developer Infrastructure": {
+    "value": "Your Complete Developer Infrastructure"
+  },
+  "Connect with a 1.5 Million Ready-to-Play Community": {
+    "value": "Connect with a 1.5 Million Ready-to-Play Community"
+  },
+  "Join the community and create games with infinite possibilities": {
+    "value": "Join the community and create games with infinite possibilities"
+  },
+  "Elevate Your Games with Real Utility": {
+    "value": "Elevate Your Games with Real Utility"
+  },
+  "Integrate CAKE tokens and NFTs to enrich the gaming experience": {
+    "value": "Integrate CAKE tokens and NFTs to enrich the gaming experience"
+  },
+  "Build Games with the most reputable global brand in the industry": {
+    "value": "Build Games with the most reputable global brand in the industry"
+  },
+  "Explore Top Blockchains": {
+    "value": "Explore Top Blockchains"
+  },
+  "PancakeSwap operates on 9 popular blockchains, welcoming developers from diverse ecosystems": {
+    "value": "PancakeSwap operates on 9 popular blockchains, welcoming developers from diverse ecosystems"
+  },
+  "Maximum Security Assurance": {
+    "value": "Maximum Security Assurance"
+  },
+  "Ensuring maximum protection for your games": {
+    "value": "Ensuring maximum protection for your games"
+  },
+  "Consistent Uptime": {
+    "value": "Consistent Uptime"
+  },
+  "Reliable service for your uninterrupted operations": {
+    "value": "Reliable service for your uninterrupted operations"
+  },
+  "Access Top-Tier Industry and Expertise": {
+    "value": "Access Top-Tier Industry and Expertise"
+  },
+  "Guidance from the leading DEX in the industry": {
+    "value": "Guidance from the leading DEX in the industry"
+  },
+  "Most User-Friendly UX in DeFi": {
+    "value": "Most User-Friendly UX in DeFi"
+  },
+  "Elevate your user experiences to new heights": {
+    "value": "Elevate your user experiences to new heights"
+  },
+  "PancakeSwap Gaming Marketplace": {
+    "value": "PancakeSwap Gaming Marketplace"
+  },
+  "Play, Build and Connect on PancakeSwap": {
+    "value": "Play, Build and Connect on PancakeSwap"
+  },
+  "Flagship": {
+    "value": "Flagship"
+  },
+  "Published By": {
+    "value": "Published By"
+  },
+  "Publish Date: %date%": {
+    "value": "Publish Date: %date%"
+  },
+  "Publisher:": {
+    "value": "Publisher:"
+  },
+  "Explore Other Games": {
+    "value": "Explore Other Games"
+  },
+  "trending tags for this game:": {
+    "value": "trending tags for this game:"
+  },
+  "Quick Access": {
+    "value": "Quick Access"
+  },
+  "NFT marketplace": {
+    "value": "NFT marketplace"
+  },
+  "Buy Squad / Bunnies": {
+    "value": "Buy Squad / Bunnies"
+  },
+  "Swap Token": {
+    "value": "Swap Token"
+  },
+  "Your browser doesn't support iframe": {
+    "value": "Your browser doesn't support iframe"
+  },
+  "Try it now": {
+    "value": "Try it now"
+  },
+  "This Product is in beta.": {
+    "value": "This Product is in beta."
+  },
+  "Smart contract wallets are currently not supported on Bridge. To continue, please switch back to an EOA (Externally Owned Account) wallet before interacting with the product.": {
+    "value": "Smart contract wallets are currently not supported on Bridge. To continue, please switch back to an EOA (Externally Owned Account) wallet before interacting with the product."
+  },
+  "twap.expirationTooltip": {
+    "value": "This is the date and time marking the end of the period which you have selected for your order to be executed."
+  },
+  "twap.tradeIntervalTooltip": {
+    "value": "The estimated minimum amount of time that will elapse between each trade in your order."
+  },
+  "twap.chunkSizeTooltip": {
+    "value": "The number of input tokens that will be removed from your balance and swapped for the output token in each individual trade."
+  },
+  "twap.totalTradesTooltip": {
+    "value": "The total number of trades scheduled for your order. Note that in limit orders, not all scheduled trades may be executed."
+  },
+  "twap.minDstAmountTooltipMarket": {
+    "value": "Since you have chosen a market order without a limit price, there is no set minimum number of tokens. The actual amount received is subject to market conditions."
+  },
+  "twap.minDstAmountTooltipLimit": {
+    "value": "This is the minimum number of tokens that may be received. \n\n NOTE: This minimum only refers to executed trades. Some trades may not be executed if the limit price is higher than the available market prices and your order may only be partially filled."
+  },
+  "twap.limitPriceTooltip": {
+    "value": "Trades will only be executed when the available market price is equal to or better than this limit price. Your order may only be partially filled."
+  },
+  "twap.sizePerTradeTooltip": {
+    "value": "This sets the size of each individual trade that will be executed over the duration of your order. \n\n Note: Min. size per trade should be > {usd} USD"
+  },
+  "twap.maxDurationTooltip": {
+    "value": "The maximum time during which the total amount of individual trades making up your full order can be executed. \n\n Note that depending on your parameters, your order may be filled earlier than this time, partially filled or not filled at all."
+  },
+  "twap.tradeIntervalTootlip": {
+    "value": "The estimated time that will elapse between each trade in your order. \n\n Note that as this time includes an allowance of two minutes for bidder auction and block settlement, which cannot be predicted exactly, actual time may vary."
+  },
+  "twap.sliderMinSizeTooltip": {
+    "value": "Individual trades must have a minimum trade size of {usd} USD."
+  },
+  "twap.connect": {
+    "value": "Connect wallet"
+  },
+  "twap.selectTokens": {
+    "value": "Select tokens"
+  },
+  "twap.disclaimer": {
+    "value": "Orders are executed in smaller trades over a specified period of time and are subject to market conditions and other risks. \n\n Your trade may be executed at a price that is significantly different from the current market price (although not below your limit price), which could result in significant losses. If the available market price is lower than the limit price you have set, some of the trades of your order may not be executed, resulting in a partially filled order. \n\n The trades are based on a decentralized TWAP protocol that utilizes off-chain takers which compete to fill orders. These takers are entitled to request a fee, which the protocol removes for the winning taker from the output tokens. Accordingly, the amount of output tokens you will receive may vary in accordance with taker behavior. \n\n Takers may take into account gas fees for your transactions when setting their fees, which may result in fluctuations in the fee amounts. \n\n Note that the protocol has been designed such that the presence of one honest taker (i.e, a taker who charges only reimbursement for gas fees) should result in an output amount that is as close as possible to spot market prices. {dex} and Orbs have implemented automated, decentralized “honest takers”, however, these features are in beta and their use is subject to risk. \n\n   This order will be executed using a decentralized protocol that is in beta and its use is at your own risk. \n\n You can read more about the [TWAP protocol](https://github.com/orbs-network/twap). \n\n Use of this feature is subject to the [terms and conditions](https://github.com/orbs-network/twap/blob/master/TOS.md) set forth."
+  },
+  "twap.days": {
+    "value": "Days"
+  },
+  "twap.hours": {
+    "value": "Hours"
+  },
+  "twap.minutes": {
+    "value": "Minutes"
+  },
+  "twap.seconds": {
+    "value": "Seconds"
+  },
+  "twap.hrs": {
+    "value": "Hrs"
+  },
+  "twap.mins": {
+    "value": "Min"
+  },
+  "twap.switchNetwork": {
+    "value": "Switch network"
+  },
+  "twap.wrap": {
+    "value": "Wrap"
+  },
+  "twap.unwrap": {
+    "value": "Unwrap"
+  },
+  "twap.approve": {
+    "value": "Approve"
+  },
+  "twap.placeOrder": {
+    "value": "Place order"
+  },
+  "twap.confirmOrder": {
+    "value": "Confirm order"
+  },
+  "twap.enterAmount": {
+    "value": "Enter an amount"
+  },
+  "twap.insufficientFunds": {
+    "value": "Insufficient {token} balance"
+  },
+  "twap.enterTradeSize": {
+    "value": "Enter trade size"
+  },
+  "twap.enterMaxDuration": {
+    "value": "Enter max duration"
+  },
+  "twap.enterTradeInterval": {
+    "value": "Enter trade interval"
+  },
+  "twap.tradeSizeMustBeEqual": {
+    "value": "Order must meet a minimum of {usd} USD"
+  },
+  "twap.sizePerTrade": {
+    "value": "Size Per Trade"
+  },
+  "twap.tradeInterval": {
+    "value": "Trade interval"
+  },
+  "twap.maxDuration": {
+    "value": "Max duration"
+  },
+  "twap.totalTrades": {
+    "value": "Total trades"
+  },
+  "twap.cancelOrder": {
+    "value": "Cancel Order"
+  },
+  "twap.marketOrder": {
+    "value": "Market Order"
+  },
+  "twap.limitOrder": {
+    "value": "Limit Order"
+  },
+  "twap.limitPrice": {
+    "value": "Limit Price"
+  },
+  "twap.marketPrice": {
+    "value": "Market Price"
+  },
+  "twap.currentMarketPrice": {
+    "value": "Current market price"
+  },
+  "twap.from": {
+    "value": "From"
+  },
+  "twap.to": {
+    "value": "To"
+  },
+  "twap.orders": {
+    "value": "Order History"
+  },
+  "twap.confirmTx": {
+    "value": "Confirm Transaction"
+  },
+  "twap.expiration": {
+    "value": "Expiration"
+  },
+  "twap.orderType": {
+    "value": "Order type"
+  },
+  "twap.minReceivedPerTrade": {
+    "value": "Minimum received per trade"
+  },
+  "twap.ordersTooltip": {
+    "value": "The below shows your wallet's order history and current status."
+  },
+  "twap.poweredBy": {
+    "value": "Powered by Orbs"
+  },
+  "twap.balance": {
+    "value": "Balance"
+  },
+  "twap.selectToken": {
+    "value": "Select"
+  },
+  "twap.partialFillWarning": {
+    "value": "Order will be partially filled. To fully fill it, the minimum duration should be total trades multiplied by trade interval."
+  },
+  "twap.tradeIntervalWarning": {
+    "value": "Trade interval must be more than 1 minute to allow time for bidder auction and block settlement."
+  },
+  "twap.limitPriceMessage": {
+    "value": "Limit orders may not execute when the token's price is equal or close to the limit price, due to gas and standard swap fees. [Learn more](https://www.orbs.com/dtwap-and-dlimit-faq)"
+  },
+  "twap.hideCancelledOrders": {
+    "value": "Hide canceled orders"
+  },
+  "twap.openOrders": {
+    "value": "Open Orders"
+  },
+  "twap.orderHistory": {
+    "value": "Order History"
+  },
+  "twap.hide": {
+    "value": "Hide"
+  },
+  "twap.canceled": {
+    "value": "Canceled"
+  },
+  "twap.completed": {
+    "value": "Completed"
+  },
+  "twap.expired": {
+    "value": "Expired"
+  },
+  "twap.open": {
+    "value": "Open"
+  },
+  "twap.setMarketRate": {
+    "value": "Set market rate"
+  },
+  "twap.noOpenOrders": {
+    "value": "No open orders"
+  },
+  "twap.noOrderHistory": {
+    "value": "No history found"
+  },
+  "twap.sellAtRate": {
+    "value": "Sell {token} at rate"
+  },
+  "twap.status": {
+    "value": "Status"
+  },
+  "twap.viewOnExplorer": {
+    "value": "View on explorer"
+  },
+  "twap.orderId": {
+    "value": "Order ID"
+  },
+  "twap.price": {
+    "value": "Price"
+  },
+  "twap.fee": {
+    "value": "Fee"
+  },
+  "twap.expiry": {
+    "value": "Expiry"
+  },
+  "twap.filled": {
+    "value": "Filled"
+  },
+  "twap.feeTooltip": {
+    "value": "Fee is estimated and exact amount may change at execution."
+  },
+  "twap.gain": {
+    "value": "Gain"
+  },
+  "twap.insufficientLiquidity": {
+    "value": "Insufficient liquidity for this trade."
+  },
+  "twap.searchingForBestPrice": {
+    "value": "Searching for the best price"
+  },
+  "twap.placeLimitOrder": {
+    "value": "Place Limit Order"
+  },
+  "twap.placeTWAPOrder": {
+    "value": "Place TWAP Order"
+  },
+  "twap.limitPriceWarning": {
+    "value": "Limit price is {percent}% lower than market, you are selling at a much lower rate. Please use our [Swap](/swap) instead."
+  },
+  "twap.orderCancelled": {
+    "value": "Order cancelled"
+  },
+  "twap.orderCancelledMessage": {
+    "value": "Order {id} has been cancelled"
+  },
+  "twap.pleaseApproveItInYourWallet": {
+    "value": "Please approve it in your wallet"
+  },
+  "twap.confirmPlacing": {
+    "value": "Confirm Placing"
+  },
+  "twap.limitOrderPlaced": {
+    "value": "Limit Order Placed"
+  },
+  "twap.twapOrderPlaced": {
+    "value": "TWAP Order Placed"
+  },
+  "twap.orderSubmitted": {
+    "value": "Order Submitted"
+  },
+  "twap.transactionRejected": {
+    "value": "Transaction rejected"
+  },
+  "twap.transactionFailed": {
+    "value": "Transaction failed"
+  },
+  "twap.insufficientBalance": {
+    "value": "Insufficient {token} balance"
+  },
+  "twap.insufficientBalanceMessage": {
+    "value": "You don't have enough balance to perform the swap."
+  },
+  "twap.errorMessage": {
+    "value": "Please try again. If it doesn’t work, try getting help by using the link below."
+  },
+  "twap.wrappingError": {
+    "value": "{token} wrapping went wrong"
+  },
+  "twap.approvingError": {
+    "value": "{token} approving went wrong"
+  },
+  "twap.orderPlacingError": {
+    "value": "{orderType} order placing confirmation went wrong"
+  },
+  "twap.transactionSubmissionWentWrong": {
+    "value": "Transaction submission went wrong"
+  },
+  "twap.canceledApproval": {
+    "value": "You canceled {token} approval"
+  },
+  "twap.canceledWrapping": {
+    "value": "You canceled {token} wrapping"
+  },
+  "twap.canceledOrderPlacing": {
+    "value": "You canceled {orderType} order placing confirmation"
+  },
+  "twap.canceledApprovalMessage": {
+    "value": "You didn't approve {token} in your wallet: {wallet}"
+  },
+  "twap.canceledWrappingMessage": {
+    "value": "You didn't approve {token} wrapping in your wallet: {wallet}"
+  },
+  "twap.canceledOrderPlacingMessage": {
+    "value": "You didn't confirm placing {orderType} order in your wallet: {wallet}"
+  },
+  "twap.canceledTransaction": {
+    "value": "You canceled the transaction"
+  },
+  "twap.canceledTransactionMessage": {
+    "value": "You didn't confirm the transaction in your wallet: {wallet}"
+  },
+  "twap.twap": {
+    "value": "TWAP"
+  },
+  "twap.limit": {
+    "value": "Limit"
+  },
+  "twap.loading": {
+    "value": "Loading"
+  },
+  "twap.confirm": {
+    "value": "Confirm"
+  },
+  "twap.srcTokenForDstToken": {
+    "value": "{srcAmount} {srcToken} for {dstAmount} {dstToken}"
+  },
+  "solana.add_liquidity": {
+    "value": "Add Liquidity"
+  },
+  "solana.harvest_rewards": {
+    "value": "Harvest Rewards"
+  },
+  "solana.harvest_clmm_rewards": {
+    "value": "Harvest CLMM Rewards"
+  },
+  "solana.added_liquidity_desc": {
+    "value": "Added %amountA% %symbolA% and %amountB% %symbolB%."
+  },
+  "solana.position_closed": {
+    "value": "Position Closed"
+  },
+  "solana.close_mint_position": {
+    "value": "Close %mint% position."
+  },
+  "solana.remove_liquidity": {
+    "value": "Remove Liquidity"
+  },
+  "solana.removed_liquidity_desc": {
+    "value": "Removed %amountA% %symbolA% and %amountB% %symbolB%."
+  },
+  "solana.update_rewards": {
+    "value": "Update Rewards"
+  },
+  "solana.update_rewards_in_pool": {
+    "value": "Update rewards in %pool%."
+  },
+  "solana.create_pool": {
+    "value": "Create Pool"
+  },
+  "solana.create_v3_pool": {
+    "value": "Create V3 pool"
+  },
+  "solana.create_new_farm": {
+    "value": "Create New Farm"
+  },
+  "solana.farm_id": {
+    "value": "ID: %poolId%"
+  },
+  "solana.harvested_symbol": {
+    "value": "Harvested: %symbol%"
+  },
+  "solana.lock_position": {
+    "value": "Lock Position"
+  },
+  "solana.position_locked": {
+    "value": "Position %position% locked"
+  },
+  "Fee.amount": {
+    "value": "Fee",
+    "hint": "Refers to the actual fee amount charged (an absolute value, usually shown with a token or currency), e.g. \"Fee: 0.01 BNB\". Use a translation that indicates a monetary fee/amount."
+  },
+  "Fee.rate": {
+    "value": "Fee",
+    "hint": "Refers to the fee as a rate or tier (usually a percentage, e.g. 0.25%) or a selectable fee level for pools/trades. Use a translation that conveys a rate/percentage or fee tier."
+  },
+  "Max.fill-max": {
+    "value": "Max",
+    "hint": "Used on a button or quick-fill control to fill an input with the maximum available amount (use the user's full balance / select 100%)."
+  },
+  "Max.upper-bound": {
+    "value": "Max",
+    "hint": "Label for the upper bound / maximum value in a range (for example the maximum price or upper limit in a Min/Max pair)."
+  },
+  "Unstaked.status": {
+    "value": "Unstaked",
+    "hint": "Use where 'Unstaked' is a status/label indicating assets are not staked (e.g. next to amounts or as a table cell). This should read as the current state, not an action/result."
+  },
+  "Unstaked.toast": {
+    "value": "Unstaked",
+    "hint": "Use when 'Unstaked' is used as an action/result message (e.g. toast title 'Unstaked!' or confirmation after unstaking). Prefer wording that communicates the action completed successfully."
+  },
+  "From.sender": {
+    "value": "From",
+    "hint": "Column/header label representing the sender/origin address or party in activity/transaction lists (who initiated/paid the transaction)."
+  },
+  "To.recipient": {
+    "value": "To",
+    "hint": "Column/header or label representing the recipient/target address or party in activity/transaction lists (who receives the transaction)."
+  },
+  "Earn.verb": {
+    "value": "Earn",
+    "hint": "Used as a short verb/label before a token name or as a menu/button label (e.g. 'Earn CAKE', 'Earn BNB + BUSD', or a menu item 'Earn' leading to farms). Translate as an action: 'to earn / obtain rewards'. Keep it short so it can prefix token symbols."
+  },
+  "Earn.label": {
+    "value": "Earn",
+    "hint": "Used as a descriptive label followed by a value (e.g. 'Earn: CAKE + Fees' or 'Earn: 0.123 CAKE'). This is a label for a field showing what you will earn — translate as a noun/label with a trailing colon if your language requires one."
+  },
+  "Total Supply": {
+    "value": "Supply",
+    "hint": "Noun referring to an amount/metric (total supply of tokens or items)."
+  },
+  "Commit.ifo": {
+    "value": "Commit",
+    "hint": "This is an imperative/action (button) to perform the contribution/commit transaction in an IFO. Use a verb appropriate for contributing/buying in an IFO (e.g. '认购' or '提交')."
+  },
+  "Commit.prediction": {
+    "value": "Commit",
+    "hint": "This is a UI label (noun) shown before an amount that indicates the amount being committed/placed (e.g. a 'Committed' or 'Amount to commit' label). Translate as a noun/label, not an imperative."
+  },
+  "Enable.Approval": {
+    "value": "Enable",
+    "hint": "Use when the button/label means granting an on‑chain approval/allowance (authorizing a contract to spend tokens). This is NOT a generic feature toggle. Keep phrasing short and action‑oriented for a CTA."
+  },
+  "Enable.Feature": {
+    "value": "Enable",
+    "hint": "Use when the button/label enables a feature, permission, or toggle (e.g., enable MEV support, allow camera access). This is not an on‑chain token approval."
+  },
+  "Next.step": {
+    "value": "Next",
+    "hint": "Used as a button or control label to proceed to the next step in a multi-step flow (e.g. forms, wizards). Translate as an action: 'go to the next step'."
+  },
+  "Next.round": {
+    "value": "Next",
+    "hint": "Used as a title/label for the upcoming round/period (e.g. 'Next' round). Translate as a noun indicating the following round/period."
+  },
+  "Info.section_title": {
+    "value": "Info",
+    "hint": "Used as the name of the Info section/page (menu item and page title). This is the product/section name — translate as the Info section label."
+  },
+  "Info.detail": {
+    "value": "Info",
+    "hint": "Short UI label for a toggle/expandable that shows details (e.g. 'Show Info' / 'Hide'). Prefer a concise word meaning 'details' rather than the product/section name."
+  },
+  "Prediction.Position.Down": {
+    "value": "Down",
+    "hint": "Label for the prediction/bet position meaning the market will go down (bear position). Used as a short position/tag/arrow label in Predictions UI."
+  },
+  "HealthIndicator.Down": {
+    "value": "Down",
+    "hint": "Indicates a service/subgraph is down or unavailable (system health status)."
+  },
+  "Win.action": {
+    "value": "Win",
+    "hint": "Call-to-action link text that invites the user to go to the Predictions page to try to win with their earned CAKE. Imperative/verb sense (do this action)."
+  },
+  "Win.result": {
+    "value": "Win",
+    "hint": "Label/tag indicating the outcome that the user has won (a result state). Noun/adjective sense (won/winner)."
+  },
+  "Total.amount": {
+    "value": "Total",
+    "hint": "Label for a numeric total/sum (e.g. total USD value, table column total, summary amounts). Use the word meaning the summed amount."
+  },
+  "Total.tabOverall": {
+    "value": "Total",
+    "hint": "Tab name indicating the overall / aggregate category (e.g. the 'Total' leaderboard or overall view). Translate as a label for the overall/all category."
+  },
+  "Round.lottery": {
+    "value": "Round",
+    "hint": "Used in lottery UI to indicate a lottery 'round' or 'issue'. Translate as the lottery period (often shown as “第{round}期”)."
+  },
+  "Round.predictions": {
+    "value": "Round",
+    "hint": "Used in predictions/betting contexts to indicate a betting round/iteration. Translate as a round/iteration term (e.g., “第{round}轮” or “轮次”)."
+  }
+}

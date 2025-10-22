@@ -1,0 +1,51 @@
+[
+  {
+    "id": "ifo-presale",
+    "chainId": 56,
+    "contractAddress": "0xD8210a960f0F15778e00C62Dad14D3319712e5cb",
+    "tokenAddress": "0x635d44F246156ed1080CB470877256c847673f19",
+    "icon": "https://assets.pancakeswap.finance/web/ifos/v2/whitebridge/logo.png",
+    "bannerUrl": "https://assets.pancakeswap.finance/web/ifos/v2/whitebridge/bg.png",
+    "projectUrl": "https://www.whitebridge.network/",
+    "twitterLink": "https://x.com/AiWhitebridge",
+    "tgeTitle": {
+      "i18nText": "Whitebridge Network"
+    },
+    "description": {
+      "i18nText": "Whitebridge Network is a decentralised people-data intelligence layer that turns scattered public records and online signals into trustable, ready-to-use insights."
+    },
+    "presetData": {
+      "startTimestamp": 1760439600,
+      "endTimestamp": 1760526000,
+      "offeringCurrency": {
+        "address": "0x",
+        "decimals": 18,
+        "symbol": "WBAI",
+        "name": "Whitebridge"
+      },
+      "totalSalesAmount": 20000000,
+      "stakeCurrency0": {
+        "chainId": 56,
+        "address": "0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82",
+        "decimals": 18,
+        "symbol": "CAKE",
+        "name": "Cake"
+      },
+      "preSaleDurationText": { "i18nText": "1 Day" },
+      "pools": [
+        {
+          "pid": 0,
+          "stakeCurrency": {
+            "chainId": 56,
+            "address": "0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82",
+            "decimals": 18,
+            "symbol": "CAKE",
+            "name": "Cake"
+          },
+          "pricePerToken": "$0.008",
+          "raiseAmountText": "$160,000"
+        }
+      ]
+    }
+  }
+]

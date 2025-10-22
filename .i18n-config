@@ -1,0 +1,75 @@
+{
+  "requirements": [
+    "The translation is used for PancakeSwap, the translated text should be profession in crypto industry",
+    "When there are template variables such as %xxx%, no need to translate the %xx% part",
+    "For brand names, networks, tokens such as PancakeSwap, CAKE, BNB, MoonPay, Acceleraytor, Merkl, Github, Springboard, veCAKE, CAKE, BNB, SOL, ETH, USDT, USDC, Arbitrum One, Base, Ethereum, Linea, Polygon zkEVM, zkSync Era, Solana etc., no need to translate them",
+    "More user-friendly, crypto/finance tone"
+  ],
+  "scanDirs": [
+    "apps/solana",
+    "apps/aptos",
+    "apps/web",
+    "apps/bridge",
+    "packages/uikit/src",
+    "packages/ui-wallets/src",
+    "packages/widgets-internal"
+  ],
+  "model": "gemini-2.5-pro",
+  "extendedTranslationFiles": [
+    "packages/localization/src/config/translation.extend.json"
+  ],
+  "external": [
+    "https://proofs.pancakeswap.com/cms-config/ads-config.json",
+    "https://proofs.pancakeswap.com/cms-config/ifo-config.json"
+  ],
+  "translationDir": "locales",
+  "languages": [
+    "ar-SA",
+    "bn-BD",
+    "de-DE",
+    "el-GR",
+    "es-ES",
+    "fi-FI",
+    "fil-PH",
+    "fr-FR",
+    "hi-IN",
+    "hu-HU",
+    "id-ID",
+    "ja-JP",
+    "ko-KR",
+    "nl-NL",
+    "pl-PL",
+    "pt-BR",
+    "pt-PT",
+    "ro-RO",
+    "ru-RU",
+    "sv-SE",
+    "ta-IN",
+    "uk-UA",
+    "vi-VN",
+    "zh-CN",
+    "zh-TW"
+  ],
+  "ignores": [
+    "PancakeSwap",
+    "MoonPay",
+    "Acceleraytor",
+    "Merkl",
+    "Github",
+    "Springboard",
+    "veCAKE",
+    "CAKE",
+    "BNB",
+    "SOL",
+    "ETH",
+    "USDT",
+    "USDC",
+    "Arbitrum One",
+    "Base",
+    "Ethereum",
+    "Linea",
+    "Polygon zkEVM",
+    "zkSync Era",
+    "Solana"
+  ]
+}

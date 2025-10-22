@@ -1,0 +1,512 @@
+import { CommonBasesType } from 'components/SearchModal/types'
+
+import { Currency, CurrencyAmount, Percent } from '@pancakeswap/sdk'
+import { AutoColumn, Box, Button, CardBody, RowBetween, Text, useModal } from '@pancakeswap/uikit'
+import { ConfirmationModalContent } from '@pancakeswap/widgets-internal'
+
+import { useIsExpertMode, useUserSlippage } from '@pancakeswap/utils/user'
+import { FeeAmount, MasterChefV3, NonfungiblePositionManager, Pool } from '@pancakeswap/v3-sdk'
+import { useTransactionDeadline } from 'hooks/useTransactionDeadline'
+import { useDerivedPositionInfo } from 'hooks/v3/useDerivedPositionInfo'
+import useV3DerivedInfo from 'hooks/v3/useV3DerivedInfo'
+import { useV3PositionFromTokenId, useV3TokenIdsByAccount } from 'hooks/v3/useV3Positions'
+import { useCallback, useMemo, useState } from 'react'
+import { maxAmountSpend } from 'utils/maxAmountSpend'
+import { CurrencyField as Field } from 'utils/types'
+
+import { useTranslation } from '@pancakeswap/localization'
+import { AppHeader } from 'components/App'
+import { useIsTransactionUnsupported, useIsTransactionWarning } from 'hooks/Trades'
+import { useMasterchefV3, useV3NFTPositionManagerContract } from 'hooks/useContract'
+import { useRouter } from 'next/router'
+import { useTransactionAdder } from 'state/transactions/hooks'
+import { calculateGasMargin, isAddressEqual } from 'utils'
+import Page from 'views/Page'
+import { useSendTransaction } from 'wagmi'
+
+import { BodyWrapper } from 'components/App/AppBody'
+import CurrencyInputPanel from 'components/CurrencyInputPanel'
+import TransactionConfirmationModal from 'components/TransactionConfirmationModal'
+import { ApprovalState, useApproveCallback } from 'hooks/useApproveCallback'
+import { basisPointsToPercent } from 'utils/exchange'
+import { formatCurrencyAmount, formatRawAmount } from 'utils/formatCurrencyAmount'
+import { isUserRejected } from 'utils/sentry'
+import { getViemClients } from 'utils/viem'
+import { hexToBigInt } from 'viem'
+
+import { ZapLiquidityWidget } from 'components/ZapLiquidityWidget'
+import { ZAP_V3_POOL_ADDRESSES } from 'config/constants/zapV3'
+import { useSingleCallResult } from 'state/multicall/hooks'
+import { transactionErrorToUserReadableMessage } from 'utils/transactionErrorToUserReadableMessage'
+import useAccountActiveChain from 'hooks/useAccountActiveChain'
+import { LiquiditySlippageButton } from 'views/Swap/components/SlippageButton'
+import { V3SubmitButton } from './components/V3SubmitButton'
+import LockedDeposit from './formViews/V3FormView/components/LockedDeposit'
+import { PositionPreview } from './formViews/V3FormView/components/PositionPreview'
+import { useV3MintActionHandlers } from './formViews/V3FormView/form/hooks/useV3MintActionHandlers'
+import { useV3FormState } from './formViews/V3FormView/form/reducer'
+
+interface AddLiquidityV3PropsType {
+  currencyA?: Currency | null
+  currencyB?: Currency | null
+}
+
+export default function IncreaseLiquidityV3({ currencyA: baseCurrency, currencyB }: AddLiquidityV3PropsType) {
+  const router = useRouter()
+  const { sendTransactionAsync } = useSendTransaction()
+  const [attemptingTxn, setAttemptingTxn] = useState<boolean>(false) // clicked confirm
+  const [txnErrorMessage, setTxnErrorMessage] = useState<string | undefined>()
+
+  const [, , feeAmountFromUrl, tokenId] = router.query.currency || []
+
+  const {
+    t,
+    currentLanguage: { locale },
+  } = useTranslation()
+  const expertMode = useIsExpertMode()
+
+  const { account, chainId, isWrongNetwork } = useAccountActiveChain()
+
+  const masterchefV3 = useMasterchefV3()
+  const { tokenIds: stakedTokenIds, loading: tokenIdsInMCv3Loading } = useV3TokenIdsByAccount(
+    masterchefV3?.address,
+    account,
+  )
+
+  const [txHash, setTxHash] = useState<string>('')
+
+  const addTransaction = useTransactionAdder()
+  // fee selection from url
+  const feeAmount: FeeAmount | undefined = useMemo(
+    () =>
+      feeAmountFromUrl && Object.values(FeeAmount).includes(parseFloat(feeAmountFromUrl))
+        ? parseFloat(feeAmountFromUrl)
+        : undefined,
+    [feeAmountFromUrl],
+  )
+
+  // check for existing position if tokenId in url
+  const { position: existingPositionDetails, loading: positionLoading } = useV3PositionFromTokenId(
+    tokenId ? BigInt(tokenId) : undefined,
+  )
+
+  const hasExistingPosition = !!existingPositionDetails && !positionLoading
+  const { position: existingPosition } = useDerivedPositionInfo(existingPositionDetails)
+  // prevent an error if they input NATIVE/WNATIVE
+  const quoteCurrency = useMemo(
+    () => (baseCurrency && currencyB && baseCurrency.wrapped.equals(currencyB.wrapped) ? undefined : currencyB),
+    [baseCurrency, currencyB],
+  )
+
+  // mint state
+  const formState = useV3FormState()
+  const { independentField, typedValue } = formState
+
+  const {
+    pool,
+    dependentField,
+    parsedAmounts,
+    position,
+    noLiquidity,
+    hasInsufficentBalance,
+    currencies,
+    errorMessage,
+    invalidRange,
+    outOfRange,
+    depositADisabled,
+    depositBDisabled,
+    ticksAtLimit,
+    currencyBalances,
+  } = useV3DerivedInfo(
+    baseCurrency ?? undefined,
+    quoteCurrency ?? undefined,
+    feeAmount,
+    baseCurrency ?? undefined,
+    existingPosition,
+    formState,
+  )
+
+  const hasZapV3Pool = useMemo(() => {
+    if (pool) {
+      const zapV3Whitelist = ZAP_V3_POOL_ADDRESSES[pool.chainId]
+      if (zapV3Whitelist) {
+        if (zapV3Whitelist.length === 0) return true
+        return zapV3Whitelist.includes(Pool.getAddress(pool.token0, pool.token1, pool.fee))
+      }
+    }
+    return false
+  }, [pool])
+
+  const { onFieldAInput, onFieldBInput } = useV3MintActionHandlers(noLiquidity)
+
+  // txn values
+  const [deadline] = useTransactionDeadline() // custom from users settings
+  // get formatted amounts
+  const formattedAmounts = useMemo(
+    () => ({
+      [independentField]: typedValue,
+      [dependentField]: parsedAmounts[dependentField]?.toSignificant(6) ?? '',
+    }),
+    [parsedAmounts, typedValue, independentField, dependentField],
+  )
+
+  // get the max amounts user can add
+  const maxAmounts: { [field in Field]?: CurrencyAmount<Currency> } = useMemo(
+    () =>
+      [Field.CURRENCY_A, Field.CURRENCY_B].reduce((accumulator, field) => {
+        return {
+          ...accumulator,
+          [field]: maxAmountSpend(currencyBalances[field]),
+        }
+      }, {}),
+    [currencyBalances],
+  )
+
+  const positionManager = useV3NFTPositionManagerContract()
+  const [allowedSlippage] = useUserSlippage() // custom from users
+
+  const isStakedInMCv3 = useMemo(() => {
+    if (tokenIdsInMCv3Loading) {
+      return 'loading'
+    }
+    return tokenId && stakedTokenIds.find((id) => id === BigInt(tokenId)) ? 'true' : 'false'
+  }, [tokenIdsInMCv3Loading, tokenId, stakedTokenIds])
+
+  const manager =
+    isStakedInMCv3 !== 'loading' ? (isStakedInMCv3 === 'true' ? masterchefV3 : positionManager) : undefined
+  const interfaceManager =
+    isStakedInMCv3 !== 'loading' ? (isStakedInMCv3 === 'true' ? MasterChefV3 : NonfungiblePositionManager) : undefined
+
+  const tokenIdBigInt = tokenId ? BigInt(tokenId) : undefined
+
+  const { position: positionDetails } = useV3PositionFromTokenId(tokenIdBigInt)
+
+  const owner = useSingleCallResult({
+    contract: tokenId && positionManager ? positionManager : undefined,
+    functionName: 'ownerOf',
+    args: useMemo(() => [tokenIdBigInt], [tokenIdBigInt]),
+  }).result
+
+  const ownsNFT =
+    isAddressEqual(owner, account) || isAddressEqual(positionDetails?.operator, account) || isStakedInMCv3 === 'true'
+
+  const isValid = !errorMessage && !invalidRange && !tokenIdsInMCv3Loading && ownsNFT
+
+  const {
+    approvalState: approvalA,
+    approveCallback: approveACallback,
+    revokeCallback: revokeACallback,
+    currentAllowance: currentAllowanceA,
+  } = useApproveCallback(parsedAmounts[Field.CURRENCY_A], manager?.address)
+  const {
+    approvalState: approvalB,
+    approveCallback: approveBCallback,
+    revokeCallback: revokeBCallback,
+    currentAllowance: currentAllowanceB,
+  } = useApproveCallback(parsedAmounts[Field.CURRENCY_B], manager?.address)
+
+  // we need an existence check on parsed amounts for single-asset deposits
+  const showApprovalA = approvalA !== ApprovalState.APPROVED && !!parsedAmounts[Field.CURRENCY_A]
+  const showApprovalB = approvalB !== ApprovalState.APPROVED && !!parsedAmounts[Field.CURRENCY_B]
+
+  const onIncrease = useCallback(async () => {
+    if (
+      tokenIdsInMCv3Loading ||
+      !chainId ||
+      !sendTransactionAsync ||
+      !account ||
+      !interfaceManager ||
+      !manager ||
+      !positionManager ||
+      !baseCurrency ||
+      !quoteCurrency ||
+      !deadline ||
+      !position
+    )
+      return
+
+    const useNative = baseCurrency.isNative ? baseCurrency : quoteCurrency.isNative ? quoteCurrency : undefined
+    const { calldata, value } =
+      hasExistingPosition && tokenId
+        ? interfaceManager.addCallParameters(position, {
+            tokenId,
+            slippageTolerance: basisPointsToPercent(allowedSlippage),
+            deadline: deadline.toString(),
+            useNative,
+          })
+        : interfaceManager.addCallParameters(position, {
+            slippageTolerance: basisPointsToPercent(allowedSlippage),
+            recipient: account,
+            deadline: deadline.toString(),
+            useNative,
+            createPool: noLiquidity,
+          })
+
+    setAttemptingTxn(true)
+    getViemClients({ chainId })
+      ?.estimateGas({
+        account,
+        to: manager.address,
+        data: calldata,
+        value: hexToBigInt(value),
+      })
+      .then((gasLimit) => {
+        return sendTransactionAsync({
+          account,
+          to: manager.address,
+          data: calldata,
+          value: hexToBigInt(value),
+          gas: calculateGasMargin(gasLimit),
+          chainId,
+        })
+      })
+      .then((response) => {
+        const baseAmount = formatRawAmount(
+          parsedAmounts[Field.CURRENCY_A]?.quotient?.toString() ?? '0',
+          baseCurrency.decimals,
+          4,
+        )
+        const quoteAmount = formatRawAmount(
+          parsedAmounts[Field.CURRENCY_B]?.quotient?.toString() ?? '0',
+          quoteCurrency.decimals,
+          4,
+        )
+
+        setAttemptingTxn(false)
+        addTransaction(
+          { hash: response },
+          {
+            type: 'increase-liquidity-v3',
+            summary: `Increase ${baseAmount} ${baseCurrency?.symbol} and ${quoteAmount} ${quoteCurrency?.symbol}`,
+          },
+        )
+        setTxHash(response)
+      })
+      .catch((err) => {
+        // we only care if the error is something _other_ than the user rejected the tx
+        if (!isUserRejected(err)) {
+          setTxnErrorMessage(transactionErrorToUserReadableMessage(err, t))
+        }
+        setAttemptingTxn(false)
+        console.error(err)
+      })
+  }, [
+    account,
+    addTransaction,
+    allowedSlippage,
+    baseCurrency,
+    chainId,
+    deadline,
+    hasExistingPosition,
+    interfaceManager,
+    manager,
+    noLiquidity,
+    parsedAmounts,
+    position,
+    positionManager,
+    quoteCurrency,
+    sendTransactionAsync,
+    tokenId,
+    tokenIdsInMCv3Loading,
+    t,
+  ])
+
+  const addIsUnsupported = useIsTransactionUnsupported(currencies?.CURRENCY_A, currencies?.CURRENCY_B)
+
+  const addIsWarning = useIsTransactionWarning(currencies?.CURRENCY_A, currencies?.CURRENCY_B)
+
+  const handleDismissConfirmation = useCallback(() => {
+    setTxnErrorMessage(undefined)
+    // if there was a tx hash, we want to clear the input
+    if (txHash && tokenId) {
+      onFieldAInput('')
+      router.push(`/liquidity/${tokenId}`)
+    }
+  }, [onFieldAInput, router, txHash, tokenId])
+
+  const pendingText = useMemo(() => {
+    if (depositADisabled) {
+      return t('Supplying %amountA% %symbolA% %amountB% %symbolB%', {
+        amountA: formatCurrencyAmount(parsedAmounts[Field.CURRENCY_B], 4, locale),
+        symbolA: currencies[Field.CURRENCY_B]?.symbol,
+        amountB: '',
+        symbolB: '',
+      })
+    }
+    if (depositBDisabled) {
+      return t('Supplying %amountA% %symbolA% %amountB% %symbolB%', {
+        amountA: formatCurrencyAmount(parsedAmounts[Field.CURRENCY_A], 4, locale),
+        symbolA: currencies[Field.CURRENCY_A]?.symbol,
+        amountB: '',
+        symbolB: '',
+      })
+    }
+    return t('Supplying %amountA% %symbolA% and %amountB% %symbolB%', {
+      amountA: formatCurrencyAmount(parsedAmounts[Field.CURRENCY_A], 4, locale),
+      symbolA: currencies[Field.CURRENCY_A]?.symbol ?? '',
+      amountB: formatCurrencyAmount(parsedAmounts[Field.CURRENCY_B], 4, locale),
+      symbolB: currencies[Field.CURRENCY_B]?.symbol ?? '',
+    })
+  }, [depositADisabled, depositBDisabled, currencies, parsedAmounts, locale, t])
+
+  const [onPresentIncreaseLiquidityModal] = useModal(
+    <TransactionConfirmationModal
+      minWidth={['100%', null, '420px']}
+      title={t('Increase Liquidity')}
+      customOnDismiss={handleDismissConfirmation}
+      attemptingTxn={attemptingTxn}
+      errorMessage={txnErrorMessage}
+      hash={txHash}
+      content={() => (
+        <ConfirmationModalContent
+          topContent={() =>
+            position ? (
+              <PositionPreview
+                position={position}
+                inRange={!outOfRange}
+                ticksAtLimit={ticksAtLimit}
+                baseCurrencyDefault={baseCurrency}
+              />
+            ) : null
+          }
+          bottomContent={() => (
+            <Button width="100%" mt="16px" onClick={onIncrease}>
+              {t('Increase')}
+            </Button>
+          )}
+        />
+      )}
+      pendingText={pendingText}
+    />,
+    true,
+    true,
+    'TransactionConfirmationModalIncreaseLiquidity',
+  )
+
+  const handleButtonSubmit = useCallback(
+    () => (expertMode ? onIncrease() : onPresentIncreaseLiquidityModal()),
+    [expertMode, onIncrease, onPresentIncreaseLiquidityModal],
+  )
+
+  const buttons = (
+    <V3SubmitButton
+      addIsUnsupported={addIsUnsupported}
+      addIsWarning={addIsWarning}
+      account={account ?? undefined}
+      isWrongNetwork={Boolean(isWrongNetwork)}
+      approvalA={approvalA}
+      approvalB={approvalB}
+      isValid={isValid}
+      showApprovalA={showApprovalA}
+      approveACallback={approveACallback}
+      currentAllowanceA={currentAllowanceA}
+      revokeACallback={revokeACallback}
+      currencies={currencies}
+      approveBCallback={approveBCallback}
+      currentAllowanceB={currentAllowanceB}
+      revokeBCallback={revokeBCallback}
+      showApprovalB={showApprovalB}
+      parsedAmounts={parsedAmounts}
+      onClick={handleButtonSubmit}
+      attemptingTxn={attemptingTxn}
+      errorMessage={errorMessage}
+      buttonText={t('Increase')}
+      depositADisabled={depositADisabled}
+      depositBDisabled={depositBDisabled}
+    />
+  )
+
+  const handleOnZapSubmit = useCallback(() => {
+    router.push(`/liquidity/${tokenId}`)
+  }, [router, tokenId])
+
+  return (
+    <Page>
+      <BodyWrapper>
+        <AppHeader
+          backTo={`/liquidity/${tokenId}`}
+          title={t('Add %assetA%-%assetB% Liquidity', {
+            assetA: currencies[Field.CURRENCY_A]?.symbol ?? '',
+            assetB: currencies[Field.CURRENCY_B]?.symbol ?? '',
+          })}
+        />
+        <CardBody>
+          <Box mb="16px">
+            {existingPosition && (
+              <PositionPreview
+                position={existingPosition}
+                title={t('Selected Range')}
+                inRange={!outOfRange}
+                ticksAtLimit={ticksAtLimit}
+                baseCurrencyDefault={baseCurrency}
+              />
+            )}
+            <Box mt="16px">
+              <LockedDeposit locked={depositADisabled} mb="8px">
+                <CurrencyInputPanel
+                  disableCurrencySelect
+                  showUSDPrice
+                  maxAmount={maxAmounts[Field.CURRENCY_A]}
+                  onMax={() => onFieldAInput(maxAmounts[Field.CURRENCY_A]?.toExact() ?? '')}
+                  onPercentInput={(percent) =>
+                    onFieldAInput(maxAmounts?.[Field.CURRENCY_A]?.multiply(new Percent(percent, 100))?.toExact() ?? '')
+                  }
+                  value={formattedAmounts[Field.CURRENCY_A] ?? '0'}
+                  onUserInput={onFieldAInput}
+                  showQuickInputButton
+                  showMaxButton
+                  currency={currencies[Field.CURRENCY_A]}
+                  id="add-liquidity-input-tokena"
+                  showCommonBases
+                  commonBasesType={CommonBasesType.LIQUIDITY}
+                />
+              </LockedDeposit>
+              <LockedDeposit locked={depositBDisabled} mt="8px">
+                <CurrencyInputPanel
+                  disableCurrencySelect
+                  showUSDPrice
+                  maxAmount={maxAmounts[Field.CURRENCY_B]}
+                  onMax={() => onFieldBInput(maxAmounts[Field.CURRENCY_B]?.toExact() ?? '')}
+                  onPercentInput={(percent) =>
+                    onFieldBInput(maxAmounts[Field.CURRENCY_B]?.multiply(new Percent(percent, 100))?.toExact() ?? '')
+                  }
+                  value={formattedAmounts[Field.CURRENCY_B] ?? '0'}
+                  onUserInput={onFieldBInput}
+                  showQuickInputButton
+                  showMaxButton
+                  currency={currencies[Field.CURRENCY_B]}
+                  id="add-liquidity-input-tokenb"
+                  showCommonBases
+                  commonBasesType={CommonBasesType.LIQUIDITY}
+                />
+              </LockedDeposit>
+            </Box>
+          </Box>
+          <AutoColumn
+            style={{
+              flexGrow: 1,
+              gap: 16,
+            }}
+          >
+            <RowBetween my="16px">
+              <Text color="textSubtle">{t('Slippage Tolerance')}</Text>
+              <LiquiditySlippageButton />
+            </RowBetween>
+            {buttons}
+            {ownsNFT && hasZapV3Pool && hasInsufficentBalance && (
+              <ZapLiquidityWidget
+                tokenId={tokenId}
+                pool={pool}
+                baseCurrency={baseCurrency}
+                baseCurrencyAmount={formattedAmounts[Field.CURRENCY_A]}
+                quoteCurrency={quoteCurrency}
+                quoteCurrencyAmount={formattedAmounts[Field.CURRENCY_B]}
+                onSubmit={handleOnZapSubmit}
+              />
+            )}
+          </AutoColumn>
+        </CardBody>
+      </BodyWrapper>
+    </Page>
+  )
+}

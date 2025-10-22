@@ -1,0 +1,42 @@
+{
+  "name": "@pancakeswap/ui-wallets",
+  "version": "0.0.2",
+  "main": "src/index.ts",
+  "sideEffects": [
+    "*.css.ts"
+  ],
+  "private": true,
+  "dependencies": {
+    "@pancakeswap/hooks": "workspace:*",
+    "@pancakeswap/localization": "workspace:*",
+    "@pancakeswap/uikit": "workspace:*",
+    "@pancakeswap/utils": "workspace:*",
+    "@pancakeswap/wagmi": "workspace:*",
+    "@pancakeswap/chains": "workspace:*",
+    "@solana/wallet-adapter-base": "catalog:",
+    "@solana/wallet-adapter-react": "catalog:",
+    "@solana/wallet-adapter-react-ui": "catalog:",
+    "@solana/wallet-adapter-exodus": "catalog:",
+    "@solana/wallet-adapter-glow": "catalog:",
+    "@solflare-wallet/wallet-adapter": "catalog:",
+    "@solana/web3.js": "catalog:",
+    "wagmi": "catalog:",
+    "qrcode.react": "^3.1.0",
+    "lodash": "^4.17.21"
+  },
+  "peerDependencies": {
+    "react": "^18.2.0",
+    "@vanilla-extract/css": "^1.13.0",
+    "@types/lodash": "^4.14.168",
+    "@types/react": "catalog:",
+    "swiper": "*",
+    "styled-components": "6.0.7",
+    "react-device-detect": "^2.1.2",
+    "jotai": "catalog:",
+    "@cyberlab/cyber-app-sdk": "catalog:",
+    "@solana/wallet-adapter-wallets": "catalog:"
+  },
+  "devDependencies": {
+    "styled-components": "6.0.7"
+  }
+}

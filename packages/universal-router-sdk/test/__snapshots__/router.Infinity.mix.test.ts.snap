@@ -1,0 +1,1275 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`PancakeSwap Universal Mixed Router Command Generation Test > mixed > label: should encode CAKE->USDC through mixed swaps Infinity(ETH-CAKE) -> v3(WETH-USDC) payerIsUser=false 1`] = `
+[
+  {
+    "command": "INFI_SWAP",
+    "args": [],
+    "actions": [
+      {
+        "action": "SETTLE",
+        "args": [
+          {
+            "type": "address",
+            "name": "currency",
+            "value": "0x152649eA73beAb28c5b49B26eb48f7EAD6d4c898"
+          },
+          {
+            "type": "uint256",
+            "name": "amount",
+            "value": "50"
+          },
+          {
+            "type": "bool",
+            "name": "payerIsUser",
+            "value": false
+          }
+        ]
+      },
+      {
+        "action": "CL_SWAP_EXACT_IN_SINGLE",
+        "args": [
+          {
+            "type": "tuple",
+            "name": "params",
+            "value": {
+              "poolKey": {
+                "currency0": "0x0000000000000000000000000000000000000000",
+                "currency1": "0x152649eA73beAb28c5b49B26eb48f7EAD6d4c898",
+                "hooks": "0x0000000000000000000000000000000000000000",
+                "poolManager": "0x0000000000000000000000000000000000000000",
+                "fee": 500,
+                "parameters": "0x00000000000000000000000000000000000000000000000000000000000a0000"
+              },
+              "zeroForOne": false,
+              "amountIn": "50",
+              "amountOutMinimum": "0",
+              "hookData": "0x0000000000000000000000000000000000000000"
+            }
+          }
+        ]
+      },
+      {
+        "action": "TAKE",
+        "args": [
+          {
+            "type": "address",
+            "name": "currency",
+            "value": "0x0000000000000000000000000000000000000000"
+          },
+          {
+            "type": "address",
+            "name": "recipient",
+            "value": "0x0000000000000000000000000000000000000002"
+          },
+          {
+            "type": "uint256",
+            "name": "amount",
+            "value": "0"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "command": "WRAP_ETH",
+    "args": [
+      {
+        "type": "address",
+        "name": "recipient",
+        "value": "0x0000000000000000000000000000000000000002"
+      },
+      {
+        "type": "uint256",
+        "name": "amountMin",
+        "value": "57896044618658097711785492504343953926634992332820282019728792003956564819968"
+      }
+    ]
+  },
+  {
+    "command": "V3_SWAP_EXACT_IN",
+    "args": [
+      {
+        "type": "address",
+        "name": "recipient",
+        "value": "0x0000000000000000000000000000000000000001"
+      },
+      {
+        "type": "uint256",
+        "name": "amountIn",
+        "value": "57896044618658097711785492504343953926634992332820282019728792003956564819968"
+      },
+      {
+        "type": "uint256",
+        "name": "amountOutMin",
+        "value": "9523"
+      },
+      {
+        "type": "bytes",
+        "name": "path",
+        "value": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc20001f4a0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
+      },
+      {
+        "type": "bool",
+        "name": "payerIsUser",
+        "value": false
+      }
+    ]
+  }
+]
+`;
+
+exports[`PancakeSwap Universal Mixed Router Command Generation Test > mixed > label: should encode CAKE->USDC through mixed swaps Infinity(ETH-CAKE) -> v3(WETH-USDC) payerIsUser=false 2`] = `
+[
+  {
+    "command": "INFI_SWAP",
+    "args": [],
+    "actions": [
+      {
+        "action": "SETTLE",
+        "args": [
+          {
+            "type": "address",
+            "name": "currency",
+            "value": "0x152649eA73beAb28c5b49B26eb48f7EAD6d4c898"
+          },
+          {
+            "type": "uint256",
+            "name": "amount",
+            "value": "50"
+          },
+          {
+            "type": "bool",
+            "name": "payerIsUser",
+            "value": false
+          }
+        ]
+      },
+      {
+        "action": "CL_SWAP_EXACT_IN_SINGLE",
+        "args": [
+          {
+            "type": "tuple",
+            "name": "params",
+            "value": {
+              "poolKey": {
+                "currency0": "0x0000000000000000000000000000000000000000",
+                "currency1": "0x152649eA73beAb28c5b49B26eb48f7EAD6d4c898",
+                "hooks": "0x0000000000000000000000000000000000000000",
+                "poolManager": "0x0000000000000000000000000000000000000000",
+                "fee": 500,
+                "parameters": "0x00000000000000000000000000000000000000000000000000000000000a0000"
+              },
+              "zeroForOne": false,
+              "amountIn": "50",
+              "amountOutMinimum": "0",
+              "hookData": "0x0000000000000000000000000000000000000000"
+            }
+          }
+        ]
+      },
+      {
+        "action": "TAKE",
+        "args": [
+          {
+            "type": "address",
+            "name": "currency",
+            "value": "0x0000000000000000000000000000000000000000"
+          },
+          {
+            "type": "address",
+            "name": "recipient",
+            "value": "0x0000000000000000000000000000000000000002"
+          },
+          {
+            "type": "uint256",
+            "name": "amount",
+            "value": "0"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "command": "WRAP_ETH",
+    "args": [
+      {
+        "type": "address",
+        "name": "recipient",
+        "value": "0x0000000000000000000000000000000000000002"
+      },
+      {
+        "type": "uint256",
+        "name": "amountMin",
+        "value": "57896044618658097711785492504343953926634992332820282019728792003956564819968"
+      }
+    ]
+  },
+  {
+    "command": "V3_SWAP_EXACT_IN",
+    "args": [
+      {
+        "type": "address",
+        "name": "recipient",
+        "value": "0x0000000000000000000000000000000000000001"
+      },
+      {
+        "type": "uint256",
+        "name": "amountIn",
+        "value": "57896044618658097711785492504343953926634992332820282019728792003956564819968"
+      },
+      {
+        "type": "uint256",
+        "name": "amountOutMin",
+        "value": "9523"
+      },
+      {
+        "type": "bytes",
+        "name": "path",
+        "value": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc20001f4a0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
+      },
+      {
+        "type": "bool",
+        "name": "payerIsUser",
+        "value": false
+      }
+    ]
+  }
+]
+`;
+
+exports[`PancakeSwap Universal Mixed Router Command Generation Test > mixed > should encode CAKE->USDC through mixed swaps Infinity(ETH-CAKE) -> v3(WETH-USDC) 1`] = `
+[
+  {
+    "command": "INFI_SWAP",
+    "args": [],
+    "actions": [
+      {
+        "action": "CL_SWAP_EXACT_IN_SINGLE",
+        "args": [
+          {
+            "type": "tuple",
+            "name": "params",
+            "value": {
+              "poolKey": {
+                "currency0": "0x0000000000000000000000000000000000000000",
+                "currency1": "0x152649eA73beAb28c5b49B26eb48f7EAD6d4c898",
+                "hooks": "0x0000000000000000000000000000000000000000",
+                "poolManager": "0x0000000000000000000000000000000000000000",
+                "fee": 500,
+                "parameters": "0x00000000000000000000000000000000000000000000000000000000000a0000"
+              },
+              "zeroForOne": false,
+              "amountIn": "50",
+              "amountOutMinimum": "0",
+              "hookData": "0x0000000000000000000000000000000000000000"
+            }
+          }
+        ]
+      },
+      {
+        "action": "SETTLE",
+        "args": [
+          {
+            "type": "address",
+            "name": "currency",
+            "value": "0x152649eA73beAb28c5b49B26eb48f7EAD6d4c898"
+          },
+          {
+            "type": "uint256",
+            "name": "amount",
+            "value": "50"
+          },
+          {
+            "type": "bool",
+            "name": "payerIsUser",
+            "value": true
+          }
+        ]
+      },
+      {
+        "action": "TAKE",
+        "args": [
+          {
+            "type": "address",
+            "name": "currency",
+            "value": "0x0000000000000000000000000000000000000000"
+          },
+          {
+            "type": "address",
+            "name": "recipient",
+            "value": "0x0000000000000000000000000000000000000002"
+          },
+          {
+            "type": "uint256",
+            "name": "amount",
+            "value": "0"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "command": "WRAP_ETH",
+    "args": [
+      {
+        "type": "address",
+        "name": "recipient",
+        "value": "0x0000000000000000000000000000000000000002"
+      },
+      {
+        "type": "uint256",
+        "name": "amountMin",
+        "value": "57896044618658097711785492504343953926634992332820282019728792003956564819968"
+      }
+    ]
+  },
+  {
+    "command": "V3_SWAP_EXACT_IN",
+    "args": [
+      {
+        "type": "address",
+        "name": "recipient",
+        "value": "0x0000000000000000000000000000000000000001"
+      },
+      {
+        "type": "uint256",
+        "name": "amountIn",
+        "value": "57896044618658097711785492504343953926634992332820282019728792003956564819968"
+      },
+      {
+        "type": "uint256",
+        "name": "amountOutMin",
+        "value": "9523"
+      },
+      {
+        "type": "bytes",
+        "name": "path",
+        "value": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc20001f4a0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
+      },
+      {
+        "type": "bool",
+        "name": "payerIsUser",
+        "value": false
+      }
+    ]
+  }
+]
+`;
+
+exports[`PancakeSwap Universal Mixed Router Command Generation Test > mixed > should encode CAKE->USDC through mixed swaps Infinity(ETH-CAKE) -> v3(WETH-USDC) 2`] = `
+[
+  {
+    "command": "INFI_SWAP",
+    "args": [],
+    "actions": [
+      {
+        "action": "CL_SWAP_EXACT_IN_SINGLE",
+        "args": [
+          {
+            "type": "tuple",
+            "name": "params",
+            "value": {
+              "poolKey": {
+                "currency0": "0x0000000000000000000000000000000000000000",
+                "currency1": "0x152649eA73beAb28c5b49B26eb48f7EAD6d4c898",
+                "hooks": "0x0000000000000000000000000000000000000000",
+                "poolManager": "0x0000000000000000000000000000000000000000",
+                "fee": 500,
+                "parameters": "0x00000000000000000000000000000000000000000000000000000000000a0000"
+              },
+              "zeroForOne": false,
+              "amountIn": "50",
+              "amountOutMinimum": "0",
+              "hookData": "0x0000000000000000000000000000000000000000"
+            }
+          }
+        ]
+      },
+      {
+        "action": "SETTLE",
+        "args": [
+          {
+            "type": "address",
+            "name": "currency",
+            "value": "0x152649eA73beAb28c5b49B26eb48f7EAD6d4c898"
+          },
+          {
+            "type": "uint256",
+            "name": "amount",
+            "value": "50"
+          },
+          {
+            "type": "bool",
+            "name": "payerIsUser",
+            "value": true
+          }
+        ]
+      },
+      {
+        "action": "TAKE",
+        "args": [
+          {
+            "type": "address",
+            "name": "currency",
+            "value": "0x0000000000000000000000000000000000000000"
+          },
+          {
+            "type": "address",
+            "name": "recipient",
+            "value": "0x0000000000000000000000000000000000000002"
+          },
+          {
+            "type": "uint256",
+            "name": "amount",
+            "value": "0"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "command": "WRAP_ETH",
+    "args": [
+      {
+        "type": "address",
+        "name": "recipient",
+        "value": "0x0000000000000000000000000000000000000002"
+      },
+      {
+        "type": "uint256",
+        "name": "amountMin",
+        "value": "57896044618658097711785492504343953926634992332820282019728792003956564819968"
+      }
+    ]
+  },
+  {
+    "command": "V3_SWAP_EXACT_IN",
+    "args": [
+      {
+        "type": "address",
+        "name": "recipient",
+        "value": "0x0000000000000000000000000000000000000001"
+      },
+      {
+        "type": "uint256",
+        "name": "amountIn",
+        "value": "57896044618658097711785492504343953926634992332820282019728792003956564819968"
+      },
+      {
+        "type": "uint256",
+        "name": "amountOutMin",
+        "value": "9523"
+      },
+      {
+        "type": "bytes",
+        "name": "path",
+        "value": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc20001f4a0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
+      },
+      {
+        "type": "bool",
+        "name": "payerIsUser",
+        "value": false
+      }
+    ]
+  }
+]
+`;
+
+exports[`PancakeSwap Universal Mixed Router Command Generation Test > mixed > should encode CAKE->USDC through mixed swaps Infinity(WET-CAKE) -> v2(WETH-USDC) 1`] = `
+[
+  {
+    "command": "INFI_SWAP",
+    "args": [],
+    "actions": [
+      {
+        "action": "CL_SWAP_EXACT_IN_SINGLE",
+        "args": [
+          {
+            "type": "tuple",
+            "name": "params",
+            "value": {
+              "poolKey": {
+                "currency0": "0x0000000000000000000000000000000000000000",
+                "currency1": "0x152649eA73beAb28c5b49B26eb48f7EAD6d4c898",
+                "hooks": "0x0000000000000000000000000000000000000000",
+                "poolManager": "0x0000000000000000000000000000000000000000",
+                "fee": 500,
+                "parameters": "0x00000000000000000000000000000000000000000000000000000000000a0000"
+              },
+              "zeroForOne": false,
+              "amountIn": "50",
+              "amountOutMinimum": "0",
+              "hookData": "0x0000000000000000000000000000000000000000"
+            }
+          }
+        ]
+      },
+      {
+        "action": "SETTLE",
+        "args": [
+          {
+            "type": "address",
+            "name": "currency",
+            "value": "0x152649eA73beAb28c5b49B26eb48f7EAD6d4c898"
+          },
+          {
+            "type": "uint256",
+            "name": "amount",
+            "value": "50"
+          },
+          {
+            "type": "bool",
+            "name": "payerIsUser",
+            "value": true
+          }
+        ]
+      },
+      {
+        "action": "TAKE",
+        "args": [
+          {
+            "type": "address",
+            "name": "currency",
+            "value": "0x0000000000000000000000000000000000000000"
+          },
+          {
+            "type": "address",
+            "name": "recipient",
+            "value": "0x0000000000000000000000000000000000000002"
+          },
+          {
+            "type": "uint256",
+            "name": "amount",
+            "value": "0"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "command": "WRAP_ETH",
+    "args": [
+      {
+        "type": "address",
+        "name": "recipient",
+        "value": "0x0000000000000000000000000000000000000002"
+      },
+      {
+        "type": "uint256",
+        "name": "amountMin",
+        "value": "57896044618658097711785492504343953926634992332820282019728792003956564819968"
+      }
+    ]
+  },
+  {
+    "command": "V2_SWAP_EXACT_IN",
+    "args": [
+      {
+        "type": "address",
+        "name": "recipient",
+        "value": "0x0000000000000000000000000000000000000001"
+      },
+      {
+        "type": "uint256",
+        "name": "amountIn",
+        "value": "57896044618658097711785492504343953926634992332820282019728792003956564819968"
+      },
+      {
+        "type": "uint256",
+        "name": "amountOutMin",
+        "value": "9523"
+      },
+      {
+        "type": "address[]",
+        "name": "path",
+        "value": [
+          "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+          "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"
+        ]
+      },
+      {
+        "type": "bool",
+        "name": "payerIsUser",
+        "value": false
+      }
+    ]
+  }
+]
+`;
+
+exports[`PancakeSwap Universal Mixed Router Command Generation Test > mixed > should encode CAKE->USDC through mixed swaps Infinity(WETH-CAKE) -> v3(WETH-USDC) 1`] = `
+[
+  {
+    "command": "INFI_SWAP",
+    "args": [],
+    "actions": [
+      {
+        "action": "CL_SWAP_EXACT_IN_SINGLE",
+        "args": [
+          {
+            "type": "tuple",
+            "name": "params",
+            "value": {
+              "poolKey": {
+                "currency0": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+                "currency1": "0x152649eA73beAb28c5b49B26eb48f7EAD6d4c898",
+                "hooks": "0x0000000000000000000000000000000000000000",
+                "poolManager": "0x0000000000000000000000000000000000000000",
+                "fee": 500,
+                "parameters": "0x00000000000000000000000000000000000000000000000000000000000a0000"
+              },
+              "zeroForOne": false,
+              "amountIn": "50",
+              "amountOutMinimum": "0",
+              "hookData": "0x0000000000000000000000000000000000000000"
+            }
+          }
+        ]
+      },
+      {
+        "action": "SETTLE",
+        "args": [
+          {
+            "type": "address",
+            "name": "currency",
+            "value": "0x152649eA73beAb28c5b49B26eb48f7EAD6d4c898"
+          },
+          {
+            "type": "uint256",
+            "name": "amount",
+            "value": "50"
+          },
+          {
+            "type": "bool",
+            "name": "payerIsUser",
+            "value": true
+          }
+        ]
+      },
+      {
+        "action": "TAKE",
+        "args": [
+          {
+            "type": "address",
+            "name": "currency",
+            "value": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2"
+          },
+          {
+            "type": "address",
+            "name": "recipient",
+            "value": "0x0000000000000000000000000000000000000002"
+          },
+          {
+            "type": "uint256",
+            "name": "amount",
+            "value": "0"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "command": "V3_SWAP_EXACT_IN",
+    "args": [
+      {
+        "type": "address",
+        "name": "recipient",
+        "value": "0x0000000000000000000000000000000000000001"
+      },
+      {
+        "type": "uint256",
+        "name": "amountIn",
+        "value": "57896044618658097711785492504343953926634992332820282019728792003956564819968"
+      },
+      {
+        "type": "uint256",
+        "name": "amountOutMin",
+        "value": "9523"
+      },
+      {
+        "type": "bytes",
+        "name": "path",
+        "value": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc20009c4a0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
+      },
+      {
+        "type": "bool",
+        "name": "payerIsUser",
+        "value": false
+      }
+    ]
+  }
+]
+`;
+
+exports[`PancakeSwap Universal Mixed Router Command Generation Test > mixed > should encode USDC->CAKE through mixed swaps v3(WETH->USDC) -> Infinity non-native(WETH->CAKE) 1`] = `
+[
+  {
+    "command": "V3_SWAP_EXACT_IN",
+    "args": [
+      {
+        "type": "address",
+        "name": "recipient",
+        "value": "0x0000000000000000000000000000000000000002"
+      },
+      {
+        "type": "uint256",
+        "name": "amountIn",
+        "value": "10000"
+      },
+      {
+        "type": "uint256",
+        "name": "amountOutMin",
+        "value": "0"
+      },
+      {
+        "type": "bytes",
+        "name": "path",
+        "value": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb480001f4c02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+      },
+      {
+        "type": "bool",
+        "name": "payerIsUser",
+        "value": true
+      }
+    ]
+  },
+  {
+    "command": "INFI_SWAP",
+    "args": [],
+    "actions": [
+      {
+        "action": "SETTLE",
+        "args": [
+          {
+            "type": "address",
+            "name": "currency",
+            "value": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2"
+          },
+          {
+            "type": "uint256",
+            "name": "amount",
+            "value": "57896044618658097711785492504343953926634992332820282019728792003956564819968"
+          },
+          {
+            "type": "bool",
+            "name": "payerIsUser",
+            "value": false
+          }
+        ]
+      },
+      {
+        "action": "CL_SWAP_EXACT_IN_SINGLE",
+        "args": [
+          {
+            "type": "tuple",
+            "name": "params",
+            "value": {
+              "poolKey": {
+                "currency0": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+                "currency1": "0x152649eA73beAb28c5b49B26eb48f7EAD6d4c898",
+                "hooks": "0x0000000000000000000000000000000000000000",
+                "poolManager": "0x0000000000000000000000000000000000000000",
+                "fee": 500,
+                "parameters": "0x00000000000000000000000000000000000000000000000000000000000a0000"
+              },
+              "zeroForOne": true,
+              "amountIn": "0",
+              "amountOutMinimum": "476",
+              "hookData": "0x0000000000000000000000000000000000000000"
+            }
+          }
+        ]
+      },
+      {
+        "action": "TAKE",
+        "args": [
+          {
+            "type": "address",
+            "name": "currency",
+            "value": "0x152649eA73beAb28c5b49B26eb48f7EAD6d4c898"
+          },
+          {
+            "type": "address",
+            "name": "recipient",
+            "value": "0x0000000000000000000000000000000000000001"
+          },
+          {
+            "type": "uint256",
+            "name": "amount",
+            "value": "0"
+          }
+        ]
+      }
+    ]
+  }
+]
+`;
+
+exports[`PancakeSwap Universal Mixed Router Command Generation Test > mixed > should encode mixed consecutive Infinity swaps, ETH->CAKE(InfinityBin)->USDC(InfinityCl) 1`] = `
+[
+  {
+    "command": "INFI_SWAP",
+    "args": [],
+    "actions": [
+      {
+        "action": "BIN_SWAP_EXACT_IN_SINGLE",
+        "args": [
+          {
+            "type": "tuple",
+            "name": "params",
+            "value": {
+              "poolKey": {
+                "currency0": "0x0000000000000000000000000000000000000000",
+                "currency1": "0x152649eA73beAb28c5b49B26eb48f7EAD6d4c898",
+                "hooks": "0x0000000000000000000000000000000000000000",
+                "poolManager": "0x0000000000000000000000000000000000000000",
+                "fee": 500,
+                "parameters": "0x0000000000000000000000000000000000000000000000000000000000050000"
+              },
+              "zeroForOne": true,
+              "amountIn": "50",
+              "amountOutMinimum": "0",
+              "hookData": "0x0000000000000000000000000000000000000000"
+            }
+          }
+        ]
+      },
+      {
+        "action": "SETTLE",
+        "args": [
+          {
+            "type": "address",
+            "name": "currency",
+            "value": "0x0000000000000000000000000000000000000000"
+          },
+          {
+            "type": "uint256",
+            "name": "amount",
+            "value": "50"
+          },
+          {
+            "type": "bool",
+            "name": "payerIsUser",
+            "value": true
+          }
+        ]
+      },
+      {
+        "action": "CL_SWAP_EXACT_IN_SINGLE",
+        "args": [
+          {
+            "type": "tuple",
+            "name": "params",
+            "value": {
+              "poolKey": {
+                "currency0": "0x152649eA73beAb28c5b49B26eb48f7EAD6d4c898",
+                "currency1": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+                "hooks": "0x0000000000000000000000000000000000000000",
+                "poolManager": "0x0000000000000000000000000000000000000000",
+                "fee": 500,
+                "parameters": "0x00000000000000000000000000000000000000000000000000000000000a0000"
+              },
+              "zeroForOne": true,
+              "amountIn": "0",
+              "amountOutMinimum": "9523",
+              "hookData": "0x0000000000000000000000000000000000000000"
+            }
+          }
+        ]
+      },
+      {
+        "action": "TAKE",
+        "args": [
+          {
+            "type": "address",
+            "name": "currency",
+            "value": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"
+          },
+          {
+            "type": "address",
+            "name": "recipient",
+            "value": "0x0000000000000000000000000000000000000001"
+          },
+          {
+            "type": "uint256",
+            "name": "amount",
+            "value": "0"
+          }
+        ]
+      }
+    ]
+  }
+]
+`;
+
+exports[`PancakeSwap Universal Mixed Router Command Generation Test > mixed > should encode mixed consecutive Infinity swaps, ETH->CAKE(InfinityBin)->USDC(InfinityCl) 2`] = `
+[
+  {
+    "command": "INFI_SWAP",
+    "args": [],
+    "actions": [
+      {
+        "action": "BIN_SWAP_EXACT_IN_SINGLE",
+        "args": [
+          {
+            "type": "tuple",
+            "name": "params",
+            "value": {
+              "poolKey": {
+                "currency0": "0x0000000000000000000000000000000000000000",
+                "currency1": "0x152649eA73beAb28c5b49B26eb48f7EAD6d4c898",
+                "hooks": "0x0000000000000000000000000000000000000000",
+                "poolManager": "0x0000000000000000000000000000000000000000",
+                "fee": 500,
+                "parameters": "0x0000000000000000000000000000000000000000000000000000000000050000"
+              },
+              "zeroForOne": true,
+              "amountIn": "50",
+              "amountOutMinimum": "0",
+              "hookData": "0x0000000000000000000000000000000000000000"
+            }
+          }
+        ]
+      },
+      {
+        "action": "SETTLE",
+        "args": [
+          {
+            "type": "address",
+            "name": "currency",
+            "value": "0x0000000000000000000000000000000000000000"
+          },
+          {
+            "type": "uint256",
+            "name": "amount",
+            "value": "50"
+          },
+          {
+            "type": "bool",
+            "name": "payerIsUser",
+            "value": true
+          }
+        ]
+      },
+      {
+        "action": "CL_SWAP_EXACT_IN_SINGLE",
+        "args": [
+          {
+            "type": "tuple",
+            "name": "params",
+            "value": {
+              "poolKey": {
+                "currency0": "0x152649eA73beAb28c5b49B26eb48f7EAD6d4c898",
+                "currency1": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+                "hooks": "0x0000000000000000000000000000000000000000",
+                "poolManager": "0x0000000000000000000000000000000000000000",
+                "fee": 500,
+                "parameters": "0x00000000000000000000000000000000000000000000000000000000000a0000"
+              },
+              "zeroForOne": true,
+              "amountIn": "0",
+              "amountOutMinimum": "9523",
+              "hookData": "0x0000000000000000000000000000000000000000"
+            }
+          }
+        ]
+      },
+      {
+        "action": "TAKE",
+        "args": [
+          {
+            "type": "address",
+            "name": "currency",
+            "value": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"
+          },
+          {
+            "type": "address",
+            "name": "recipient",
+            "value": "0x0000000000000000000000000000000000000001"
+          },
+          {
+            "type": "uint256",
+            "name": "amount",
+            "value": "0"
+          }
+        ]
+      }
+    ]
+  }
+]
+`;
+
+exports[`PancakeSwap Universal Mixed Router Command Generation Test > mixed > should encodes USDC->CAKE through mixed swaps v3(WETH->USDC) -> Infinity native(ETH->CAKE) 1`] = `
+[
+  {
+    "command": "V3_SWAP_EXACT_IN",
+    "args": [
+      {
+        "type": "address",
+        "name": "recipient",
+        "value": "0x0000000000000000000000000000000000000002"
+      },
+      {
+        "type": "uint256",
+        "name": "amountIn",
+        "value": "10000"
+      },
+      {
+        "type": "uint256",
+        "name": "amountOutMin",
+        "value": "0"
+      },
+      {
+        "type": "bytes",
+        "name": "path",
+        "value": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb480001f4c02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+      },
+      {
+        "type": "bool",
+        "name": "payerIsUser",
+        "value": true
+      }
+    ]
+  },
+  {
+    "command": "UNWRAP_WETH",
+    "args": [
+      {
+        "type": "address",
+        "name": "recipient",
+        "value": "0x0000000000000000000000000000000000000002"
+      },
+      {
+        "type": "uint256",
+        "name": "amountMin",
+        "value": "0"
+      }
+    ]
+  },
+  {
+    "command": "INFI_SWAP",
+    "args": [],
+    "actions": [
+      {
+        "action": "SETTLE",
+        "args": [
+          {
+            "type": "address",
+            "name": "currency",
+            "value": "0x0000000000000000000000000000000000000000"
+          },
+          {
+            "type": "uint256",
+            "name": "amount",
+            "value": "57896044618658097711785492504343953926634992332820282019728792003956564819968"
+          },
+          {
+            "type": "bool",
+            "name": "payerIsUser",
+            "value": false
+          }
+        ]
+      },
+      {
+        "action": "CL_SWAP_EXACT_IN_SINGLE",
+        "args": [
+          {
+            "type": "tuple",
+            "name": "params",
+            "value": {
+              "poolKey": {
+                "currency0": "0x0000000000000000000000000000000000000000",
+                "currency1": "0x152649eA73beAb28c5b49B26eb48f7EAD6d4c898",
+                "hooks": "0x0000000000000000000000000000000000000000",
+                "poolManager": "0x0000000000000000000000000000000000000000",
+                "fee": 500,
+                "parameters": "0x00000000000000000000000000000000000000000000000000000000000a0000"
+              },
+              "zeroForOne": true,
+              "amountIn": "0",
+              "amountOutMinimum": "476",
+              "hookData": "0x0000000000000000000000000000000000000000"
+            }
+          }
+        ]
+      },
+      {
+        "action": "TAKE",
+        "args": [
+          {
+            "type": "address",
+            "name": "currency",
+            "value": "0x152649eA73beAb28c5b49B26eb48f7EAD6d4c898"
+          },
+          {
+            "type": "address",
+            "name": "recipient",
+            "value": "0x0000000000000000000000000000000000000001"
+          },
+          {
+            "type": "uint256",
+            "name": "amount",
+            "value": "0"
+          }
+        ]
+      }
+    ]
+  }
+]
+`;
+
+exports[`PancakeSwap Universal Mixed Router Command Generation Test > multi-router > should encode multi-router partial needs wrap through v2/Infinity, WETH->USDC(v2) 1`] = `
+[
+  {
+    "command": "WRAP_ETH",
+    "args": [
+      {
+        "type": "address",
+        "name": "recipient",
+        "value": "0x0000000000000000000000000000000000000002"
+      },
+      {
+        "type": "uint256",
+        "name": "amountMin",
+        "value": "1000"
+      }
+    ]
+  },
+  {
+    "command": "V2_SWAP_EXACT_IN",
+    "args": [
+      {
+        "type": "address",
+        "name": "recipient",
+        "value": "0x0000000000000000000000000000000000000001"
+      },
+      {
+        "type": "uint256",
+        "name": "amountIn",
+        "value": "1000"
+      },
+      {
+        "type": "uint256",
+        "name": "amountOutMin",
+        "value": "949"
+      },
+      {
+        "type": "address[]",
+        "name": "path",
+        "value": [
+          "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+          "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"
+        ]
+      },
+      {
+        "type": "bool",
+        "name": "payerIsUser",
+        "value": false
+      }
+    ]
+  },
+  {
+    "command": "INFI_SWAP",
+    "args": [],
+    "actions": [
+      {
+        "action": "CL_SWAP_EXACT_IN_SINGLE",
+        "args": [
+          {
+            "type": "tuple",
+            "name": "params",
+            "value": {
+              "poolKey": {
+                "currency0": "0x0000000000000000000000000000000000000000",
+                "currency1": "0x152649eA73beAb28c5b49B26eb48f7EAD6d4c898",
+                "hooks": "0x0000000000000000000000000000000000000000",
+                "poolManager": "0x0000000000000000000000000000000000000000",
+                "fee": 500,
+                "parameters": "0x00000000000000000000000000000000000000000000000000000000000a0000"
+              },
+              "zeroForOne": true,
+              "amountIn": "1000",
+              "amountOutMinimum": "0",
+              "hookData": "0x0000000000000000000000000000000000000000"
+            }
+          }
+        ]
+      },
+      {
+        "action": "SETTLE",
+        "args": [
+          {
+            "type": "address",
+            "name": "currency",
+            "value": "0x0000000000000000000000000000000000000000"
+          },
+          {
+            "type": "uint256",
+            "name": "amount",
+            "value": "1000"
+          },
+          {
+            "type": "bool",
+            "name": "payerIsUser",
+            "value": true
+          }
+        ]
+      },
+      {
+        "action": "TAKE",
+        "args": [
+          {
+            "type": "address",
+            "name": "currency",
+            "value": "0x152649eA73beAb28c5b49B26eb48f7EAD6d4c898"
+          },
+          {
+            "type": "address",
+            "name": "recipient",
+            "value": "0xb0Fd90a97824C0D4e92C1203c4c45685F99f0557"
+          },
+          {
+            "type": "uint256",
+            "name": "amount",
+            "value": "0"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "command": "V2_SWAP_EXACT_IN",
+    "args": [
+      {
+        "type": "address",
+        "name": "recipient",
+        "value": "0x0000000000000000000000000000000000000001"
+      },
+      {
+        "type": "uint256",
+        "name": "amountIn",
+        "value": "57896044618658097711785492504343953926634992332820282019728792003956564819968"
+      },
+      {
+        "type": "uint256",
+        "name": "amountOutMin",
+        "value": "9523"
+      },
+      {
+        "type": "address[]",
+        "name": "path",
+        "value": [
+          "0x152649eA73beAb28c5b49B26eb48f7EAD6d4c898",
+          "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"
+        ]
+      },
+      {
+        "type": "bool",
+        "name": "payerIsUser",
+        "value": false
+      }
+    ]
+  }
+]
+`;

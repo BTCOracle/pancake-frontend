@@ -1,0 +1,55 @@
+{
+  "name": "@pancakeswap/widgets-internal",
+  "version": "0.5.1",
+  "private": true,
+  "main": "index.ts",
+  "exports": {
+    "./package.json": "./package.json",
+    ".": "./index.ts",
+    "./roi": "./roi/index.ts"
+  },
+  "dependencies": {
+    "@pancakeswap/chains": "workspace:*",
+    "@pancakeswap/farms": "workspace:*",
+    "@pancakeswap/hooks": "workspace:*",
+    "@pancakeswap/localization": "workspace:*",
+    "@pancakeswap/pools": "workspace:*",
+    "@pancakeswap/sdk": "workspace:*",
+    "@pancakeswap/swap-sdk-core": "workspace:*",
+    "@pancakeswap/tokens": "workspace:*",
+    "@pancakeswap/uikit": "workspace:*",
+    "@pancakeswap/utils": "workspace:*",
+    "@pancakeswap/v3-sdk": "workspace:*",
+    "@pancakeswap/infinity-sdk": "workspace:*",
+    "bignumber.js": "^9.0.0",
+    "clsx": "^1.2.1",
+    "d3": "^7.8.2",
+    "dayjs": "^1.11.10",
+    "jotai": "catalog:",
+    "lodash": "^4.17.21",
+    "react-dom": "^18.2.0",
+    "swiper": "^11.1.12",
+    "viem": "catalog:"
+  },
+  "peerDependencies": {
+    "@sentry/nextjs": "^9.6.0",
+    "next": "catalog:",
+    "react": "^18.2.0",
+    "styled-components": "6.0.7",
+    "styled-system": "^5.1.5",
+    "react-device-detect": "*"
+  },
+  "devDependencies": {
+    "@sentry/nextjs": "^9.6.0",
+    "@types/lodash": "^4.14.168",
+    "@types/react": "catalog:",
+    "@types/react-dom": "^18.0.6",
+    "@types/styled-system": "^5.1.17",
+    "csstype": "^3.1.2",
+    "next": "catalog:",
+    "polished": "^4.2.2",
+    "react": "^18.2.0",
+    "styled-components": "6.0.7",
+    "@types/d3": "^7.4.0"
+  }
+}

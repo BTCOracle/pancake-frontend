@@ -1,0 +1,47 @@
+import { UnifiedCurrency } from '@pancakeswap/sdk'
+import { useAtom } from 'jotai'
+import { useCallback } from 'react'
+import { swapReducerAtom } from 'state/swap/reducer'
+import { Field, selectCurrency, setRecipient, switchCurrencies, typeInput } from './actions'
+
+export function useSwapActionHandlers(): {
+  onCurrencySelection: (field: Field, currency?: UnifiedCurrency) => void
+  onSwitchTokens: () => void
+  onUserInput: (field: Field, typedValue: string) => void
+  onChangeRecipient: (recipient: string | null) => void
+} {
+  const [, dispatch] = useAtom(swapReducerAtom)
+
+  const onSwitchTokens = useCallback(() => {
+    dispatch(switchCurrencies())
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
+  const onCurrencySelection = useCallback((field: Field, currency?: UnifiedCurrency) => {
+    dispatch(
+      selectCurrency({
+        field,
+        currencyId: currency?.isToken ? currency.address : currency?.isNative ? currency.symbol : '',
+        chainId: currency?.chainId,
+      }),
+    )
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
+  const onUserInput = useCallback((field: Field, typedValue: string) => {
+    dispatch(typeInput({ field, typedValue }))
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
+  const onChangeRecipient = useCallback((recipient: string | null) => {
+    dispatch(setRecipient({ recipient }))
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
+  return {
+    onSwitchTokens,
+    onCurrencySelection,
+    onUserInput,
+    onChangeRecipient,
+  }
+}

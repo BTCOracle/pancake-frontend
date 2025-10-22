@@ -1,0 +1,22 @@
+{
+  "name": "@pancakeswap/localization",
+  "license": "MIT",
+  "version": "6.2.0",
+  "description": "A minimal internationalization library",
+  "main": "./src/index.tsx",
+  "types": "./src/index.tsx",
+  "sideEffects": false,
+  "private": true,
+  "scripts": {},
+  "dependencies": {
+    "tslib": "^2.2.0",
+    "lodash": "^4.17.21",
+    "react": "^18.2.0",
+    "i18next": "^23.11.2",
+    "react-i18next": "^13.2.2"
+  },
+  "devDependencies": {
+    "@types/react": "catalog:",
+    "@types/lodash": "^4.14.178"
+  }
+}

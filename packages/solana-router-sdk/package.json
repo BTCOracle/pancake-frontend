@@ -1,0 +1,60 @@
+{
+  "name": "@pancakeswap/solana-router-sdk",
+  "version": "1.4.9",
+  "description": "A SDK for getting best routes from Solana",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "module": "dist/index.mjs",
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pancakeswap/pancake-frontend.git",
+    "directory": "packages/solana-router-sdk"
+  },
+  "keywords": [
+    "pancakeswap",
+    "solana",
+    "router"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "coverage": "vitest run --coverage",
+    "test": "vitest --run",
+    "test:update": "vitest -u",
+    "test:label": "vitest -t label --run",
+    "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist",
+    "format:check": "prettier --check --loglevel error \"{src,test}/**/*.{js,jsx,ts,tsx,json}\"",
+    "format:write": "prettier --write \"{src,test}/**/*.{js,jsx,ts,tsx,json}\"",
+    "lint": "eslint '{src,test}/**/*.{js,jsx,ts,json}'"
+  },
+  "dependencies": {
+    "@pancakeswap/sdk": "workspace:*",
+    "@pancakeswap/utils": "workspace:*",
+    "@solana/web3.js": "catalog:",
+    "decimal.js": "^10.4.2",
+    "superstruct": "^2.0.2"
+  },
+  "devDependencies": {
+    "@types/lodash": "*",
+    "@types/node": "^15.12.2",
+    "tslib": "^2.3.0",
+    "tsup": "^6.7.0"
+  },
+  "peerDependencies": {
+    "abitype": "*",
+    "lodash": "*",
+    "tiny-invariant": "*",
+    "viem": "catalog:"
+  }
+}

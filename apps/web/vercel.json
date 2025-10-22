@@ -1,0 +1,14 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "crons": [
+    {
+      "path": "/api/burn-statistics/update",
+      "schedule": "30 2 * * 2"
+    }
+  ],
+  "git": {
+    "deploymentEnabled": {
+      "l10n_develop": false
+    }
+  }
+}

@@ -1,0 +1,4 @@
+export const TEST_RECIPIENT_ADDRESS = '0xaAaAaAaaAaAaAaaAaAAAAAAAAaaaAaAaAaaAaaAa' as const
+export const TEST_FEE_RECIPIENT_ADDRESS = '0xbBbBBBBbbBBBbbbBbbBbbbbBBbBbbbbBbBbbBBbB' as const
+export const PERMIT2_SIG =
+  '0x92ff2b035c8005213bd910849532da0f4adde9e35393c8ed4872db90eef2c153492dec30a70476e98f21d28398396669fbef6f9785c903ef83810673ec96fc8d1b'

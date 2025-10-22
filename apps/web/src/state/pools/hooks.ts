@@ -1,0 +1,198 @@
+import { ChainId } from '@pancakeswap/chains'
+import { getSourceChain, isIfoSupported } from '@pancakeswap/ifos'
+import { getLivePoolsConfig } from '@pancakeswap/pools'
+import { Token } from '@pancakeswap/sdk'
+import { Pool } from '@pancakeswap/widgets-internal'
+import { FAST_INTERVAL } from 'config/constants'
+import { useFastRefreshEffect, useSlowRefreshEffect } from 'hooks/useRefreshEffect'
+import { useEffect, useMemo } from 'react'
+import { batch, useSelector } from 'react-redux'
+import { useAppDispatch } from 'state'
+
+import { getLegacyFarmConfig } from '@pancakeswap/farms'
+import { useQuery } from '@tanstack/react-query'
+import useAccountActiveChain from 'hooks/useAccountActiveChain'
+import { useActiveChainId } from 'hooks/useActiveChainId'
+import {
+  fetchCakeFlexibleSideVaultFees,
+  fetchCakePoolPublicDataAsync,
+  fetchCakePoolUserDataAsync,
+  fetchCakeVaultFees,
+  fetchCakeVaultPublicData,
+  fetchCakeVaultUserData,
+  fetchIfoPublicDataAsync,
+  fetchPoolsConfigAsync,
+  fetchPoolsPublicDataAsync,
+  fetchPoolsStakingLimitsAsync,
+  fetchPoolsUserDataAsync,
+  fetchUserIfoCreditDataAsync,
+} from '.'
+import { fetchFarmsPublicDataAsync } from '../farms'
+import { ifoCreditSelector, makePoolWithUserDataLoadingSelector, poolsSelector } from './selectors'
+
+// Only fetch farms for live pools
+const getActiveFarms = async (chainId: number) => {
+  const farmsConfig = (await getLegacyFarmConfig(chainId)) || []
+  const livePools = (await getLivePoolsConfig(chainId)) || []
+  const lPoolAddresses = livePools
+    .filter(({ sousId }) => sousId !== 0)
+    .map(({ earningToken, stakingToken }) => {
+      if (earningToken.symbol === 'CAKE') {
+        return stakingToken.address
+      }
+      return earningToken.address
+    })
+
+  return farmsConfig
+    .filter(
+      ({ token, pid, quoteToken }) =>
+        pid !== 0 &&
+        ((token.symbol === 'CAKE' && quoteToken.symbol === 'WBNB') ||
+          (token.symbol === 'BUSD' && quoteToken.symbol === 'WBNB') ||
+          (token.symbol === 'USDT' && quoteToken.symbol === 'BUSD') ||
+          lPoolAddresses.find((poolAddress) => poolAddress === token.address)),
+    )
+    .map((farm) => farm.pid)
+}
+
+export const useFetchPublicPoolsData = () => {
+  const dispatch = useAppDispatch()
+  const { chainId } = useActiveChainId()
+
+  useSlowRefreshEffect(() => {
+    const fetchPoolsDataWithFarms = async () => {
+      if (!chainId) return
+      const activeFarms = await getActiveFarms(chainId)
+      await dispatch(fetchFarmsPublicDataAsync({ pids: activeFarms, chainId }))
+
+      batch(() => {
+        dispatch(fetchPoolsPublicDataAsync(chainId))
+        dispatch(fetchPoolsStakingLimitsAsync(chainId))
+      })
+    }
+
+    fetchPoolsDataWithFarms()
+  }, [dispatch, chainId])
+}
+
+export const usePool = (sousId: number): { pool?: Pool.DeserializedPool<Token>; userDataLoaded: boolean } => {
+  const poolWithUserDataLoadingSelector = useMemo(() => makePoolWithUserDataLoadingSelector(sousId), [sousId])
+  return useSelector(poolWithUserDataLoadingSelector)
+}
+
+export const usePools = () => {
+  return useSelector(poolsSelector)
+}
+
+export const usePoolsConfigInitialize = () => {
+  const dispatch = useAppDispatch()
+  const { chainId } = useActiveChainId()
+  useEffect(() => {
+    if (chainId) {
+      dispatch(fetchPoolsConfigAsync({ chainId }))
+    }
+  }, [dispatch, chainId])
+}
+
+export const usePoolsPageFetch = () => {
+  const dispatch = useAppDispatch()
+  const { account, chainId } = useAccountActiveChain()
+
+  usePoolsConfigInitialize()
+
+  useFetchPublicPoolsData()
+
+  useFastRefreshEffect(() => {
+    if (chainId) {
+      batch(() => {
+        if (account) {
+          dispatch(fetchPoolsUserDataAsync({ account, chainId }))
+        }
+      })
+    }
+  }, [account, chainId, dispatch])
+
+  useEffect(() => {
+    if (chainId) {
+      batch(() => {
+        dispatch(fetchCakeVaultFees(chainId))
+        dispatch(fetchCakeFlexibleSideVaultFees(chainId))
+      })
+    }
+  }, [dispatch, chainId])
+}
+
+const useCakeVaultChain = (chainId?: ChainId) => {
+  return useMemo(() => getSourceChain(chainId) || ChainId.BSC, [chainId])
+}
+
+export const useFetchIfo = () => {
+  const { account, chainId } = useAccountActiveChain()
+  const ifoSupported = useMemo(() => isIfoSupported(chainId), [chainId])
+  const cakeVaultChain = useCakeVaultChain(chainId)
+  const dispatch = useAppDispatch()
+
+  usePoolsConfigInitialize()
+
+  useQuery({
+    queryKey: ['fetchIfoPublicData', chainId],
+
+    queryFn: async () => {
+      if (chainId && cakeVaultChain) {
+        batch(() => {
+          dispatch(fetchCakePoolPublicDataAsync())
+          dispatch(fetchCakeVaultPublicData(cakeVaultChain))
+          dispatch(fetchIfoPublicDataAsync(chainId))
+        })
+      }
+      return null
+    },
+
+    enabled: Boolean(chainId && ifoSupported),
+    refetchInterval: FAST_INTERVAL,
+    refetchOnMount: false,
+    refetchOnWindowFocus: false,
+    refetchOnReconnect: false,
+  })
+
+  useQuery({
+    queryKey: ['fetchIfoUserData', account, chainId],
+
+    queryFn: async () => {
+      if (chainId && cakeVaultChain && account) {
+        batch(() => {
+          dispatch(fetchCakePoolUserDataAsync({ account, chainId: cakeVaultChain }))
+          dispatch(fetchCakeVaultUserData({ account, chainId: cakeVaultChain }))
+          dispatch(fetchUserIfoCreditDataAsync({ account, chainId }))
+        })
+      }
+      return null
+    },
+
+    enabled: Boolean(account && chainId && cakeVaultChain),
+    refetchInterval: FAST_INTERVAL,
+    refetchOnMount: false,
+    refetchOnWindowFocus: false,
+    refetchOnReconnect: false,
+  })
+
+  useQuery({
+    queryKey: ['fetchCakeVaultFees', cakeVaultChain],
+
+    queryFn: async () => {
+      if (cakeVaultChain) {
+        dispatch(fetchCakeVaultFees(cakeVaultChain))
+      }
+      return null
+    },
+
+    enabled: Boolean(cakeVaultChain && ifoSupported),
+    refetchOnMount: false,
+    refetchOnWindowFocus: false,
+    refetchOnReconnect: false,
+  })
+}
+
+export const useIfoCredit = () => {
+  return useSelector(ifoCreditSelector)
+}

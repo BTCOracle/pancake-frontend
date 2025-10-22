@@ -1,0 +1,92 @@
+# @pancakeswap/aptos-swap-sdk
+
+## 1.0.10
+
+### Patch Changes
+
+- Updated dependencies [edc65d4]
+  - @pancakeswap/swap-sdk-core@1.5.1
+
+## 1.0.9
+
+### Patch Changes
+
+- Updated dependencies [cd589e1]
+  - @pancakeswap/swap-sdk-core@1.5.0
+
+## 1.0.8
+
+### Patch Changes
+
+- Updated dependencies [cb44715]
+  - @pancakeswap/swap-sdk-core@1.4.0
+
+## 1.0.7
+
+### Patch Changes
+
+- 36f8955: Update packages
+
+## 1.0.6
+
+### Patch Changes
+
+- Updated dependencies [176eb10]
+- Updated dependencies [176eb10]
+  - @pancakeswap/swap-sdk-core@1.3.0
+
+## 1.0.5
+
+### Patch Changes
+
+- Updated dependencies [f551e5e]
+  - @pancakeswap/swap-sdk-core@1.2.0
+
+## 1.0.4
+
+### Patch Changes
+
+- Updated dependencies [610a24a]
+  - @pancakeswap/swap-sdk-core@1.1.0
+
+## 1.0.3
+
+### Patch Changes
+
+- Updated dependencies [c269d43]
+  - @pancakeswap/swap-sdk-core@1.0.1
+
+## 1.0.2
+
+### Patch Changes
+
+- f9a2752c9: Mark aptos peer to 1.x
+
+## 1.0.1
+
+### Patch Changes
+
+- 15520e566: Fix parse recursive type args on pair
+
+## 1.0.0
+
+### Major Changes
+
+- b5dbd2921: Remove JSBI and use BigInt native instead
+
+### Patch Changes
+
+- Updated dependencies [b5dbd2921]
+  - @pancakeswap/swap-sdk-core@1.0.0
+
+## 0.0.2
+
+### Patch Changes
+
+- dae8701b5: Fix APT coin compare
+
+## 0.0.1
+
+### Patch Changes
+
+- bcba002d7: Aptos swap sdk release

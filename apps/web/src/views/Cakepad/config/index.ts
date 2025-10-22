@@ -1,0 +1,1 @@
+export const CAKEPAD_CONFIGS_URL = process.env.NEXT_PUBLIC_CAKEPAD_CONFIGS_URL || ''

@@ -1,0 +1,930 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`PancakeSwap Universal Router Infinity-Cl Pool Command Generation Test > Infinity-CL > should encode a edge-case single exactInput WBNB->CAKE via tBNB-CAKE-InfinityCL pool 1`] = `
+[
+  {
+    "command": "PERMIT2_TRANSFER_FROM",
+    "args": [
+      {
+        "type": "address",
+        "name": "token",
+        "value": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2"
+      },
+      {
+        "type": "address",
+        "name": "recipient",
+        "value": "0x0000000000000000000000000000000000000002"
+      },
+      {
+        "type": "uint160",
+        "name": "amount",
+        "value": "10000000000000000"
+      }
+    ]
+  },
+  {
+    "command": "UNWRAP_WETH",
+    "args": [
+      {
+        "type": "address",
+        "name": "recipient",
+        "value": "0x0000000000000000000000000000000000000002"
+      },
+      {
+        "type": "uint256",
+        "name": "amountMin",
+        "value": "10000000000000000"
+      }
+    ]
+  },
+  {
+    "command": "INFI_SWAP",
+    "args": [],
+    "actions": [
+      {
+        "action": "SETTLE",
+        "args": [
+          {
+            "type": "address",
+            "name": "currency",
+            "value": "0x0000000000000000000000000000000000000000"
+          },
+          {
+            "type": "uint256",
+            "name": "amount",
+            "value": "10000000000000000"
+          },
+          {
+            "type": "bool",
+            "name": "payerIsUser",
+            "value": false
+          }
+        ]
+      },
+      {
+        "action": "CL_SWAP_EXACT_IN_SINGLE",
+        "args": [
+          {
+            "type": "tuple",
+            "name": "params",
+            "value": {
+              "poolKey": {
+                "currency0": "0x0000000000000000000000000000000000000000",
+                "currency1": "0x152649eA73beAb28c5b49B26eb48f7EAD6d4c898",
+                "hooks": "0x0000000000000000000000000000000000000000",
+                "poolManager": "0x0000000000000000000000000000000000000000",
+                "fee": 500,
+                "parameters": "0x00000000000000000000000000000000000000000000000000000000000a0000"
+              },
+              "zeroForOne": true,
+              "amountIn": "10000000000000000",
+              "amountOutMinimum": "952380952380952380",
+              "hookData": "0x0000000000000000000000000000000000000000"
+            }
+          }
+        ]
+      },
+      {
+        "action": "TAKE",
+        "args": [
+          {
+            "type": "address",
+            "name": "currency",
+            "value": "0x152649eA73beAb28c5b49B26eb48f7EAD6d4c898"
+          },
+          {
+            "type": "address",
+            "name": "recipient",
+            "value": "0x0000000000000000000000000000000000000001"
+          },
+          {
+            "type": "uint256",
+            "name": "amount",
+            "value": "0"
+          }
+        ]
+      }
+    ]
+  }
+]
+`;
+
+exports[`PancakeSwap Universal Router Infinity-Cl Pool Command Generation Test > Infinity-CL > should encode a multi-hop exactInput in Infinity: CAKE->ETH->USDC 1`] = `
+[
+  {
+    "command": "INFI_SWAP",
+    "args": [],
+    "actions": [
+      {
+        "action": "CL_SWAP_EXACT_IN",
+        "args": [
+          {
+            "type": "tuple",
+            "name": "params",
+            "value": {
+              "currencyIn": "0x152649eA73beAb28c5b49B26eb48f7EAD6d4c898",
+              "path": [
+                {
+                  "intermediateCurrency": "0x0000000000000000000000000000000000000000",
+                  "fee": 500,
+                  "hooks": "0x0000000000000000000000000000000000000000",
+                  "poolManager": "0x0000000000000000000000000000000000000000",
+                  "hookData": "0x",
+                  "parameters": "0x00000000000000000000000000000000000000000000000000000000000a0000"
+                },
+                {
+                  "intermediateCurrency": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+                  "fee": 500,
+                  "hooks": "0x0000000000000000000000000000000000000000",
+                  "poolManager": "0x0000000000000000000000000000000000000000",
+                  "hookData": "0x",
+                  "parameters": "0x00000000000000000000000000000000000000000000000000000000000a0000"
+                }
+              ],
+              "amountIn": "10000",
+              "amountOutMinimum": "952"
+            }
+          }
+        ]
+      },
+      {
+        "action": "SETTLE",
+        "args": [
+          {
+            "type": "address",
+            "name": "currency",
+            "value": "0x152649eA73beAb28c5b49B26eb48f7EAD6d4c898"
+          },
+          {
+            "type": "uint256",
+            "name": "amount",
+            "value": "10000"
+          },
+          {
+            "type": "bool",
+            "name": "payerIsUser",
+            "value": true
+          }
+        ]
+      },
+      {
+        "action": "TAKE",
+        "args": [
+          {
+            "type": "address",
+            "name": "currency",
+            "value": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"
+          },
+          {
+            "type": "address",
+            "name": "recipient",
+            "value": "0x0000000000000000000000000000000000000001"
+          },
+          {
+            "type": "uint256",
+            "name": "amount",
+            "value": "0"
+          }
+        ]
+      }
+    ]
+  }
+]
+`;
+
+exports[`PancakeSwap Universal Router Infinity-Cl Pool Command Generation Test > Infinity-CL > should encode a single exactInput CAKE->ETH CL swap oneForZero 1`] = `
+[
+  {
+    "command": "INFI_SWAP",
+    "args": [],
+    "actions": [
+      {
+        "action": "CL_SWAP_EXACT_IN_SINGLE",
+        "args": [
+          {
+            "type": "tuple",
+            "name": "params",
+            "value": {
+              "poolKey": {
+                "currency0": "0x0000000000000000000000000000000000000000",
+                "currency1": "0x152649eA73beAb28c5b49B26eb48f7EAD6d4c898",
+                "hooks": "0x0000000000000000000000000000000000000000",
+                "poolManager": "0x0000000000000000000000000000000000000000",
+                "fee": 500,
+                "parameters": "0x00000000000000000000000000000000000000000000000000000000000a0000"
+              },
+              "zeroForOne": false,
+              "amountIn": "10000",
+              "amountOutMinimum": "47",
+              "hookData": "0x0000000000000000000000000000000000000000"
+            }
+          }
+        ]
+      },
+      {
+        "action": "SETTLE",
+        "args": [
+          {
+            "type": "address",
+            "name": "currency",
+            "value": "0x152649eA73beAb28c5b49B26eb48f7EAD6d4c898"
+          },
+          {
+            "type": "uint256",
+            "name": "amount",
+            "value": "10000"
+          },
+          {
+            "type": "bool",
+            "name": "payerIsUser",
+            "value": true
+          }
+        ]
+      },
+      {
+        "action": "TAKE",
+        "args": [
+          {
+            "type": "address",
+            "name": "currency",
+            "value": "0x0000000000000000000000000000000000000000"
+          },
+          {
+            "type": "address",
+            "name": "recipient",
+            "value": "0x0000000000000000000000000000000000000001"
+          },
+          {
+            "type": "uint256",
+            "name": "amount",
+            "value": "0"
+          }
+        ]
+      }
+    ]
+  }
+]
+`;
+
+exports[`PancakeSwap Universal Router Infinity-Cl Pool Command Generation Test > Infinity-CL > should encode a single exactInput ETH-CAKE CL swap zeroForOne ( payerIsUser = false )  1`] = `
+[
+  {
+    "command": "INFI_SWAP",
+    "args": [],
+    "actions": [
+      {
+        "action": "SETTLE",
+        "args": [
+          {
+            "type": "address",
+            "name": "currency",
+            "value": "0x0000000000000000000000000000000000000000"
+          },
+          {
+            "type": "uint256",
+            "name": "amount",
+            "value": "10000000000000000"
+          },
+          {
+            "type": "bool",
+            "name": "payerIsUser",
+            "value": false
+          }
+        ]
+      },
+      {
+        "action": "CL_SWAP_EXACT_IN_SINGLE",
+        "args": [
+          {
+            "type": "tuple",
+            "name": "params",
+            "value": {
+              "poolKey": {
+                "currency0": "0x0000000000000000000000000000000000000000",
+                "currency1": "0x152649eA73beAb28c5b49B26eb48f7EAD6d4c898",
+                "hooks": "0x0000000000000000000000000000000000000000",
+                "poolManager": "0x0000000000000000000000000000000000000000",
+                "fee": 500,
+                "parameters": "0x00000000000000000000000000000000000000000000000000000000000a0000"
+              },
+              "zeroForOne": true,
+              "amountIn": "10000000000000000",
+              "amountOutMinimum": "952380952380952380",
+              "hookData": "0x0000000000000000000000000000000000000000"
+            }
+          }
+        ]
+      },
+      {
+        "action": "TAKE",
+        "args": [
+          {
+            "type": "address",
+            "name": "currency",
+            "value": "0x152649eA73beAb28c5b49B26eb48f7EAD6d4c898"
+          },
+          {
+            "type": "address",
+            "name": "recipient",
+            "value": "0x0000000000000000000000000000000000000001"
+          },
+          {
+            "type": "uint256",
+            "name": "amount",
+            "value": "0"
+          }
+        ]
+      }
+    ]
+  }
+]
+`;
+
+exports[`PancakeSwap Universal Router Infinity-Cl Pool Command Generation Test > Infinity-CL > should encode a single exactInput ETH-CAKE CL swap zeroForOne 1`] = `
+[
+  {
+    "command": "INFI_SWAP",
+    "args": [],
+    "actions": [
+      {
+        "action": "CL_SWAP_EXACT_IN_SINGLE",
+        "args": [
+          {
+            "type": "tuple",
+            "name": "params",
+            "value": {
+              "poolKey": {
+                "currency0": "0x0000000000000000000000000000000000000000",
+                "currency1": "0x152649eA73beAb28c5b49B26eb48f7EAD6d4c898",
+                "hooks": "0x0000000000000000000000000000000000000000",
+                "poolManager": "0x0000000000000000000000000000000000000000",
+                "fee": 500,
+                "parameters": "0x00000000000000000000000000000000000000000000000000000000000a0000"
+              },
+              "zeroForOne": true,
+              "amountIn": "10000000000000000",
+              "amountOutMinimum": "952380952380952380",
+              "hookData": "0x0000000000000000000000000000000000000000"
+            }
+          }
+        ]
+      },
+      {
+        "action": "SETTLE",
+        "args": [
+          {
+            "type": "address",
+            "name": "currency",
+            "value": "0x0000000000000000000000000000000000000000"
+          },
+          {
+            "type": "uint256",
+            "name": "amount",
+            "value": "10000000000000000"
+          },
+          {
+            "type": "bool",
+            "name": "payerIsUser",
+            "value": true
+          }
+        ]
+      },
+      {
+        "action": "TAKE",
+        "args": [
+          {
+            "type": "address",
+            "name": "currency",
+            "value": "0x152649eA73beAb28c5b49B26eb48f7EAD6d4c898"
+          },
+          {
+            "type": "address",
+            "name": "recipient",
+            "value": "0x0000000000000000000000000000000000000001"
+          },
+          {
+            "type": "uint256",
+            "name": "amount",
+            "value": "0"
+          }
+        ]
+      }
+    ]
+  }
+]
+`;
+
+exports[`PancakeSwap Universal Router Infinity-Cl Pool Command Generation Test > Infinity-CL > should encode a single exactInput edge case for wrap-out CAKE->WETH CL swap oneForZero 1`] = `
+[
+  {
+    "command": "INFI_SWAP",
+    "args": [],
+    "actions": [
+      {
+        "action": "CL_SWAP_EXACT_IN_SINGLE",
+        "args": [
+          {
+            "type": "tuple",
+            "name": "params",
+            "value": {
+              "poolKey": {
+                "currency0": "0x0000000000000000000000000000000000000000",
+                "currency1": "0x152649eA73beAb28c5b49B26eb48f7EAD6d4c898",
+                "hooks": "0x0000000000000000000000000000000000000000",
+                "poolManager": "0x0000000000000000000000000000000000000000",
+                "fee": 500,
+                "parameters": "0x00000000000000000000000000000000000000000000000000000000000a0000"
+              },
+              "zeroForOne": false,
+              "amountIn": "10000",
+              "amountOutMinimum": "47",
+              "hookData": "0x0000000000000000000000000000000000000000"
+            }
+          }
+        ]
+      },
+      {
+        "action": "SETTLE",
+        "args": [
+          {
+            "type": "address",
+            "name": "currency",
+            "value": "0x152649eA73beAb28c5b49B26eb48f7EAD6d4c898"
+          },
+          {
+            "type": "uint256",
+            "name": "amount",
+            "value": "10000"
+          },
+          {
+            "type": "bool",
+            "name": "payerIsUser",
+            "value": true
+          }
+        ]
+      },
+      {
+        "action": "TAKE",
+        "args": [
+          {
+            "type": "address",
+            "name": "currency",
+            "value": "0x0000000000000000000000000000000000000000"
+          },
+          {
+            "type": "address",
+            "name": "recipient",
+            "value": "0x0000000000000000000000000000000000000002"
+          },
+          {
+            "type": "uint256",
+            "name": "amount",
+            "value": "0"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "command": "WRAP_ETH",
+    "args": [
+      {
+        "type": "address",
+        "name": "recipient",
+        "value": "0x0000000000000000000000000000000000000002"
+      },
+      {
+        "type": "uint256",
+        "name": "amountMin",
+        "value": "57896044618658097711785492504343953926634992332820282019728792003956564819968"
+      }
+    ]
+  },
+  {
+    "command": "SWEEP",
+    "args": [
+      {
+        "type": "address",
+        "name": "token",
+        "value": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2"
+      },
+      {
+        "type": "address",
+        "name": "recipient",
+        "value": "0x0000000000000000000000000000000000000001"
+      },
+      {
+        "type": "uint256",
+        "name": "amountMin",
+        "value": "47"
+      }
+    ]
+  }
+]
+`;
+
+exports[`PancakeSwap Universal Router Infinity-Cl Pool Command Generation Test > Infinity-CL > should encode a single exactOutput CAKE-ETH CL swap OneForZero 1`] = `
+[
+  {
+    "command": "INFI_SWAP",
+    "args": [],
+    "actions": [
+      {
+        "action": "CL_SWAP_EXACT_OUT_SINGLE",
+        "args": [
+          {
+            "type": "tuple",
+            "name": "params",
+            "value": {
+              "poolKey": {
+                "currency0": "0x0000000000000000000000000000000000000000",
+                "currency1": "0x152649eA73beAb28c5b49B26eb48f7EAD6d4c898",
+                "hooks": "0x0000000000000000000000000000000000000000",
+                "poolManager": "0x0000000000000000000000000000000000000000",
+                "fee": 500,
+                "parameters": "0x00000000000000000000000000000000000000000000000000000000000a0000"
+              },
+              "zeroForOne": false,
+              "amountOut": "30",
+              "amountInMaximum": "10500",
+              "hookData": "0x0000000000000000000000000000000000000000"
+            }
+          }
+        ]
+      },
+      {
+        "action": "SETTLE",
+        "args": [
+          {
+            "type": "address",
+            "name": "currency",
+            "value": "0x152649eA73beAb28c5b49B26eb48f7EAD6d4c898"
+          },
+          {
+            "type": "uint256",
+            "name": "amount",
+            "value": "10500"
+          },
+          {
+            "type": "bool",
+            "name": "payerIsUser",
+            "value": true
+          }
+        ]
+      },
+      {
+        "action": "TAKE",
+        "args": [
+          {
+            "type": "address",
+            "name": "currency",
+            "value": "0x0000000000000000000000000000000000000000"
+          },
+          {
+            "type": "address",
+            "name": "recipient",
+            "value": "0x0000000000000000000000000000000000000001"
+          },
+          {
+            "type": "uint256",
+            "name": "amount",
+            "value": "0"
+          }
+        ]
+      },
+      {
+        "action": "TAKE",
+        "args": [
+          {
+            "type": "address",
+            "name": "currency",
+            "value": "0x152649eA73beAb28c5b49B26eb48f7EAD6d4c898"
+          },
+          {
+            "type": "address",
+            "name": "recipient",
+            "value": "0x0000000000000000000000000000000000000001"
+          },
+          {
+            "type": "uint256",
+            "name": "amount",
+            "value": "0"
+          }
+        ]
+      }
+    ]
+  }
+]
+`;
+
+exports[`PancakeSwap Universal Router Infinity-Cl Pool Command Generation Test > Infinity-CL > should encode a single exactOutput ETH_CAKE CL swap zeroForOne 1`] = `
+[
+  {
+    "command": "INFI_SWAP",
+    "args": [],
+    "actions": [
+      {
+        "action": "CL_SWAP_EXACT_OUT_SINGLE",
+        "args": [
+          {
+            "type": "tuple",
+            "name": "params",
+            "value": {
+              "poolKey": {
+                "currency0": "0x0000000000000000000000000000000000000000",
+                "currency1": "0x152649eA73beAb28c5b49B26eb48f7EAD6d4c898",
+                "hooks": "0x0000000000000000000000000000000000000000",
+                "poolManager": "0x0000000000000000000000000000000000000000",
+                "fee": 500,
+                "parameters": "0x00000000000000000000000000000000000000000000000000000000000a0000"
+              },
+              "zeroForOne": true,
+              "amountOut": "10000",
+              "amountInMaximum": "52",
+              "hookData": "0x0000000000000000000000000000000000000000"
+            }
+          }
+        ]
+      },
+      {
+        "action": "SETTLE",
+        "args": [
+          {
+            "type": "address",
+            "name": "currency",
+            "value": "0x0000000000000000000000000000000000000000"
+          },
+          {
+            "type": "uint256",
+            "name": "amount",
+            "value": "52"
+          },
+          {
+            "type": "bool",
+            "name": "payerIsUser",
+            "value": true
+          }
+        ]
+      },
+      {
+        "action": "TAKE",
+        "args": [
+          {
+            "type": "address",
+            "name": "currency",
+            "value": "0x152649eA73beAb28c5b49B26eb48f7EAD6d4c898"
+          },
+          {
+            "type": "address",
+            "name": "recipient",
+            "value": "0x0000000000000000000000000000000000000001"
+          },
+          {
+            "type": "uint256",
+            "name": "amount",
+            "value": "0"
+          }
+        ]
+      },
+      {
+        "action": "TAKE",
+        "args": [
+          {
+            "type": "address",
+            "name": "currency",
+            "value": "0x0000000000000000000000000000000000000000"
+          },
+          {
+            "type": "address",
+            "name": "recipient",
+            "value": "0x0000000000000000000000000000000000000001"
+          },
+          {
+            "type": "uint256",
+            "name": "amount",
+            "value": "0"
+          }
+        ]
+      }
+    ]
+  }
+]
+`;
+
+exports[`PancakeSwap Universal Router Infinity-Cl Pool Command Generation Test > Infinity-CL > should wrap return changes for exactOutput WETH->USDC swap 1`] = `
+[
+  {
+    "command": "PERMIT2_TRANSFER_FROM",
+    "args": [
+      {
+        "type": "address",
+        "name": "token",
+        "value": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2"
+      },
+      {
+        "type": "address",
+        "name": "recipient",
+        "value": "0x0000000000000000000000000000000000000002"
+      },
+      {
+        "type": "uint160",
+        "name": "amount",
+        "value": "52"
+      }
+    ]
+  },
+  {
+    "command": "UNWRAP_WETH",
+    "args": [
+      {
+        "type": "address",
+        "name": "recipient",
+        "value": "0x0000000000000000000000000000000000000002"
+      },
+      {
+        "type": "uint256",
+        "name": "amountMin",
+        "value": "52"
+      }
+    ]
+  },
+  {
+    "command": "INFI_SWAP",
+    "args": [],
+    "actions": [
+      {
+        "action": "SETTLE",
+        "args": [
+          {
+            "type": "address",
+            "name": "currency",
+            "value": "0x0000000000000000000000000000000000000000"
+          },
+          {
+            "type": "uint256",
+            "name": "amount",
+            "value": "52"
+          },
+          {
+            "type": "bool",
+            "name": "payerIsUser",
+            "value": false
+          }
+        ]
+      },
+      {
+        "action": "CL_SWAP_EXACT_OUT_SINGLE",
+        "args": [
+          {
+            "type": "tuple",
+            "name": "params",
+            "value": {
+              "poolKey": {
+                "currency0": "0x0000000000000000000000000000000000000000",
+                "currency1": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+                "hooks": "0x0000000000000000000000000000000000000000",
+                "poolManager": "0x0000000000000000000000000000000000000000",
+                "fee": 500,
+                "parameters": "0x00000000000000000000000000000000000000000000000000000000000a0000"
+              },
+              "zeroForOne": true,
+              "amountOut": "1000",
+              "amountInMaximum": "52",
+              "hookData": "0x0000000000000000000000000000000000000000"
+            }
+          }
+        ]
+      },
+      {
+        "action": "TAKE",
+        "args": [
+          {
+            "type": "address",
+            "name": "currency",
+            "value": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"
+          },
+          {
+            "type": "address",
+            "name": "recipient",
+            "value": "0x0000000000000000000000000000000000000001"
+          },
+          {
+            "type": "uint256",
+            "name": "amount",
+            "value": "0"
+          }
+        ]
+      },
+      {
+        "action": "TAKE",
+        "args": [
+          {
+            "type": "address",
+            "name": "currency",
+            "value": "0x0000000000000000000000000000000000000000"
+          },
+          {
+            "type": "address",
+            "name": "recipient",
+            "value": "0x0000000000000000000000000000000000000001"
+          },
+          {
+            "type": "uint256",
+            "name": "amount",
+            "value": "0"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "command": "WRAP_ETH",
+    "args": [
+      {
+        "type": "address",
+        "name": "recipient",
+        "value": "0x0000000000000000000000000000000000000001"
+      },
+      {
+        "type": "uint256",
+        "name": "amountMin",
+        "value": "57896044618658097711785492504343953926634992332820282019728792003956564819968"
+      }
+    ]
+  }
+]
+`;
+
+exports[`PancakeSwap Universal Router Infinity-Cl Pool Command Generation Test > Infinity-CL-advanced > should encode a single exactInput ETH-CAKE CL swap zeroForOne with custom recipient 1`] = `
+[
+  {
+    "command": "INFI_SWAP",
+    "args": [],
+    "actions": [
+      {
+        "action": "CL_SWAP_EXACT_IN_SINGLE",
+        "args": [
+          {
+            "type": "tuple",
+            "name": "params",
+            "value": {
+              "poolKey": {
+                "currency0": "0x0000000000000000000000000000000000000000",
+                "currency1": "0x152649eA73beAb28c5b49B26eb48f7EAD6d4c898",
+                "hooks": "0x0000000000000000000000000000000000000000",
+                "poolManager": "0x0000000000000000000000000000000000000000",
+                "fee": 500,
+                "parameters": "0x00000000000000000000000000000000000000000000000000000000000a0000"
+              },
+              "zeroForOne": true,
+              "amountIn": "10000000000000000",
+              "amountOutMinimum": "952380952380952380",
+              "hookData": "0x0000000000000000000000000000000000000000"
+            }
+          }
+        ]
+      },
+      {
+        "action": "SETTLE",
+        "args": [
+          {
+            "type": "address",
+            "name": "currency",
+            "value": "0x0000000000000000000000000000000000000000"
+          },
+          {
+            "type": "uint256",
+            "name": "amount",
+            "value": "10000000000000000"
+          },
+          {
+            "type": "bool",
+            "name": "payerIsUser",
+            "value": true
+          }
+        ]
+      },
+      {
+        "action": "TAKE",
+        "args": [
+          {
+            "type": "address",
+            "name": "currency",
+            "value": "0x152649eA73beAb28c5b49B26eb48f7EAD6d4c898"
+          },
+          {
+            "type": "address",
+            "name": "recipient",
+            "value": "0xaAaAaAaaAaAaAaaAaAAAAAAAAaaaAaAaAaaAaaAa"
+          },
+          {
+            "type": "uint256",
+            "name": "amount",
+            "value": "0"
+          }
+        ]
+      }
+    ]
+  }
+]
+`;

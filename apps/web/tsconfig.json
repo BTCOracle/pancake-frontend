@@ -1,0 +1,25 @@
+{
+  "extends": "@pancakeswap/tsconfig/nextjs.json",
+  "compilerOptions": {
+    "baseUrl": "./",
+    "strictNullChecks": true,
+    "noImplicitAny": false,
+    "noFallthroughCasesInSwitch": true,
+    "downlevelIteration": true,
+    "target": "ES2020",
+    "types": ["vitest/globals"],
+    "paths": {
+      "*": ["./src/*"],
+      "@pancakeswap/uikit": ["../../packages/uikit/src/index.ts"],
+      "@pancakeswap/uikit/*": ["../../packages/uikit/src/*"]
+    },
+    "skipLibCheck": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
+  },
+  "exclude": ["**/node_modules", "**/.*/", "**/config/abi/types/", "**/abis/types/*.ts"],
+  "include": ["./src/**/*.ts", "./src/**/*.tsx", "_next-typesafe-url_.d.ts", "next-env.d.ts", ".next/types/**/*.ts"]
+}

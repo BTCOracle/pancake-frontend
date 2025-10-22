@@ -1,0 +1,37 @@
+[
+  {
+    "chainId": 1,
+    "address": "0x6db0f81Db2C3B2A85a802d511577d8522D0D8C14",
+    "link": "https://app.merkl.xyz/opportunities/ethereum/CLAMM/0x6db0f81Db2C3B2A85a802d511577d8522D0D8C14"
+  },
+  {
+    "chainId": 1,
+    "address": "0x7B94A5622035207d3f527d236d47B7714Ee0acBa",
+    "link": "https://app.merkl.xyz/opportunities/ethereum/CLAMM/0x7B94A5622035207d3f527d236d47B7714Ee0acBa"
+  },
+  {
+    "chainId": 56,
+    "address": "0x9474e972F49605315763c296B122CBB998b615Cf",
+    "link": "https://app.merkl.xyz/opportunities/bsc/CLAMM/0x9474e972F49605315763c296B122CBB998b615Cf"
+  },
+  {
+    "chainId": 56,
+    "address": "0xAC0FE1C4126e4a9B644Adfc1303827e3bB5dDDF3",
+    "link": "https://app.merkl.xyz/opportunities/bsc/CLAMM/0xAC0FE1C4126e4a9B644Adfc1303827e3bB5dDDF3"
+  },
+  {
+    "chainId": 56,
+    "address": "0x2B8D093f22f7B6f53D02AcA106DE3eabC0937D45",
+    "link": "https://app.merkl.xyz/opportunities/bsc/CLAMM/0x2B8D093f22f7B6f53D02AcA106DE3eabC0937D45"
+  },
+  {
+    "chainId": 56,
+    "address": "0x03F83FdFb168E7A2A621691E4B15297B1917ab91",
+    "link": "https://app.merkl.xyz/opportunities/bsc/CLAMM/0x03F83FdFb168E7A2A621691E4B15297B1917ab91"
+  },
+  {
+    "chainId": 56,
+    "address": "0xd5a79aB649E0a5F20e995026d034a0bF28B8aACa",
+    "link": "https://app.merkl.xyz/opportunities/bsc/CLAMM/0xd5a79aB649E0a5F20e995026d034a0bF28B8aACa"
+  }
+]

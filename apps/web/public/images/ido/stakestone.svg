@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="200px" height="200px" viewBox="0 0 200 200" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>STO-white-bg</title>
+    <defs>
+        <polygon id="path-1" points="0 17.383637 25.1910116 0 45.9252556 21.1930978 92.1826596 10.8698534 117.393904 20.518153 58.251556 69.5000462"></polygon>
+    </defs>
+    <g id="页面-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="STO-white-bg">
+            <circle id="椭圆形" fill="#FFFFFF" fill-rule="nonzero" cx="100" cy="100" r="100"></circle>
+            <rect id="矩形" fill="#FFFFFF" fill-rule="nonzero" x="0" y="0" width="200" height="200" rx="100"></rect>
+            <g id="编组-3备份" transform="translate(40.000000, 32.000000)">
+                <g id="路径" transform="translate(1.738720, 35.160480)">
+                    <line x1="55.8762652" y1="0" x2="48.8723188" y2="53.5653648" stroke="#06070A" stroke-width="7.31046324"></line>
+                    <g id="蒙版" transform="translate(0.000000, 31.339476)" fill="#06070A" fill-rule="nonzero">
+                        <polygon id="path-1" points="0 17.383637 25.1910116 0 45.9252556 21.1930978 92.1826596 10.8698534 117.393904 20.518153 58.251556 69.5000462"></polygon>
+                    </g>
+                    <g id="Clipped" transform="translate(0.000000, 31.339476)">
+                        <mask id="mask-2" fill="white">
+                            <use xlink:href="#path-1"></use>
+                        </mask>
+                        <g id="path-1"></g>
+                        <line x1="48.8723188" y1="19.080285" x2="58.251556" y2="69.5000462" id="路径" stroke="#FFF3D1" stroke-width="7.31046324" mask="url(#mask-2)"></line>
+                    </g>
+                </g>
+                <polygon id="路径-21" stroke="#06070A" stroke-width="7.31046324" points="59.9605516 0 26.9297302 26.377925 0 81.8546888 59.9605516 136 120 86.1553016 88.3002368 18.1409151"></polygon>
+                <polyline id="路径-22" stroke="#06070A" stroke-width="7.31046324" points="26.9297302 26.377925 56.9077464 35.1604782 88.3002368 18.1409151"></polyline>
+            </g>
+        </g>
+    </g>
+</svg>
